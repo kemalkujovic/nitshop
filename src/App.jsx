@@ -4,7 +4,7 @@ import "./App.css";
 import StyleButton from "./components/styleButton/styleButton";
 import StyleHeader from "./components/styleHeader/styleHeader";
 function App() {
-  const [innerText, setInnerText] = useState("");
+  const [innerText, setInnerText] = useState("clicked");
   const [clicked, setClicked] = useState(false);
   useEffect(() => {
     clicked ? setInnerText("Clicked") : setInnerText("Click me");
