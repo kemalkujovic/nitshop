@@ -16,9 +16,9 @@ const LinkBar = (props) => {
         padding="0px 10%"
       >
         <Grid container direction="row">
-          <Grid item lg={6} display='flex'>
+          <Grid item lg={6} display="flex">
             <CustomDiv margin="0px 15px 0px 0px">
-              <Text fontSize={fontSize.large} color={colors.grayColor}>
+              <Text fontSize={fontSize.large} color={colors.orange}>
                 Home
               </Text>
             </CustomDiv>

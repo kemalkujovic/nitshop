@@ -5,6 +5,7 @@ export const colors = {
   secondColor: "#F0F0E9",
   grayColor: "#828181",
   lightGrayColor: "#b3b1b1",
+  orange: '#fe980f'
 };
 export const fontWeight = {
   light: "100",
