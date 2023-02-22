@@ -7,7 +7,7 @@ const CustomForm = () => {
   const [lastName, setLastName] = useState("");
 
   function nameHandler(e) {
-    setName(e.target.value);
+    // setName(e.target.value);
   }
 
   function lastNameHandler(e) {
@@ -18,7 +18,7 @@ const CustomForm = () => {
     <div>
       <StyledInput onChangeHandler={nameHandler} value={name} />
       <StyledInput onChangeHandler={lastNameHandler} value={lastName} />
-      <StyledButton innerText='Send' />
+      <StyledButton innerText="Send" />
     </div>
   );
 };
