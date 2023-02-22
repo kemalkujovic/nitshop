@@ -1,15 +1,10 @@
 import React from "react";
 import "./App.css";
-import CustomForm from "./components/customForm/customForm";
+import Navigation from "./Templates/Navigation/Navigation";
 const App = () => {
-  return (
-    <div className="App">
-      <h1>dsadsadsa</h1>
-      <header className="App-header">
-        <CustomForm />
-      </header>
-    </div>
-  );
+  return <>
+  <Navigation></Navigation>
+  </>;
 };
 
 export default App;
