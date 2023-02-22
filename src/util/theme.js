@@ -7,7 +7,7 @@ export const colors = {
   lightGrayColor: "#b3b1b1",
 };
 export const fontWeight = {
-  light: "100",
+  light: "200",
   medium: "400",
   mediumBold: "600",
   bold: "800",
