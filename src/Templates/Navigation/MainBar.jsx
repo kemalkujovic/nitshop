@@ -83,7 +83,7 @@ const MainBar = () => {
           width="100%"
           borderBottom="0.2px solid #b3b1b1"
           height="2px"
-          margin='20px 0px'
+          margin="20px 0px"
         />
       </Grid>
     </CustomDiv>

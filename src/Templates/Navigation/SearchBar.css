@@ -1,0 +1,16 @@
+.search-input{
+    display: flex;
+    position: relative;
+    align-items: center;
+}
+
+.inputSearch{
+background-color: #fbf7f7;
+border: none;
+height: 30px;
+}
+.searchIcon{
+    position: absolute;
+    right: 0;
+
+}
