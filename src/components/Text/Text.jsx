@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-
 const Text = styled.p`
   text-align: ${(props) => (props.textAlign ? props.textAlign : "left")};
   font-size: ${(props) => (props.textSize ? props.textSize : "16px")};
