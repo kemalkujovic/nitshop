@@ -4,6 +4,14 @@ import CustomDiv from "../../components/CustomDiv/CustomDiv";
 import { colors, fontSize } from "../../util/theme";
 import Text from "../../components/Text/Text";
 import SearchBar from "./SearchBar";
+const styles = {
+  navBar: {
+    display: "flex",
+    gap: "30px",
+    alignItems: "center",
+    height: "30px",
+  },
+};
 const LinkBar = (props) => {
   return (
     <>

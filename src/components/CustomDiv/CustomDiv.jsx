@@ -1,6 +1,5 @@
 import React from "react";
 import "./CustomDiv.css";
-import { textAlign } from "@mui/system";
 
 const CustomDiv = ({
   children,
@@ -19,6 +18,8 @@ const CustomDiv = ({
   textAlign,
   letterSpacing,
   borderBottom,
+  placeItems,
+  placeContent,
 }) => {
   const divWidth = width ? width : "auto";
   const divHeight = height ? height : "auto";
