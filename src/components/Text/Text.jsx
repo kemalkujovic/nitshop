@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 const Text = styled.p`
   text-align: ${(props) => (props.textAlign ? props.textAlign : "left")};
-  font-size: ${(props) => (props.textSize ? props.textSize : "16px")};
+  font-size: ${(props) => (props.fontSize ? props.fontSize : "16px")};
   font-weight: ${(props) => (props.fontWeight ? props.fontWeight : "400")};
   font-style: ${(props) => (props.fontStyle ? props.fontStyle : "inherit")};
   font-family: ${(props) => (props.fontFamily ? props.fontFamily : "inherit")};
