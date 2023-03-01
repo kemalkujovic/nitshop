@@ -22,7 +22,7 @@ const Carousel = ({ data }) => {
       axis="horizontal"
       showIndicators
       showThumbs={false}
-      interval={1000}
+      interval={6000}
       autoPlay
       infiniteLoop
       showStatus={false}
