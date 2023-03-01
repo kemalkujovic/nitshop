@@ -34,51 +34,63 @@ const SocialIcons = () => (
     />
   </>
 );
+
 const TopRow = () => {
   const screenWidth = getScreenWidth();
+
+  const alignItemsInFirstDiv = screenWidth === "SM" ? "center" : "flex-start";
+  const alignItemsInSecondDiv = screenWidth === "SM" ? "center" : "flex-end";
+  const paddingInDiv = screenWidth === "SM" ? "10px 0px" : "0px";
+  const topDivHeight = screenWidth === "SM" ? "auto" : "30px";
   return (
-    <Grid container direction="row">
-      <CustomDiv
-        bgColor={colors.secondColor}
-        width="100%"
-        height="30px"
-        border="0px"
-        display="flex"
-        padding="0px 10%"
-      >
-        <Grid container direction="row">
-          <Grid item lg={6}>
-            <CustomDiv display="flex" alignItems="center">
-              <PhoneIcon
+    <CustomDiv
+      bgColor={colors.secondColor}
+      display="flex"
+      width="100%"
+      height={topDivHeight}
+      padding="0px 10%"
+      border="0px"
+    >
+      <Grid container direction="row">
+        <Grid item xs={12} sm={6} md={6} lg={6}>
+          <CustomDiv
+            display="flex"
+            alignItems="center"
+            justifyContent={alignItemsInFirstDiv}
+            padding={paddingInDiv}
+          >
+            <PhoneIcon
+              style={{
+                fontSize: fontSize.normal,
+              }}
+            />
+            <Text fontSize={fontSize.small}>+38163333333</Text>
+            <CustomDiv
+              display="flex"
+              alignItems="center"
+              margin="0px 0px 0px 15px"
+            >
+              <EmailIcon
                 style={{
                   fontSize: fontSize.normal,
                 }}
               />
-              <CustomDiv
-                margin="0px 0px 0px 3px"
-                display="flex"
-                alignItems="center"
-              >
-                <Text textSize={fontSize.small}>+3816333321</Text>
-                <EmailIcon
-                  style={{
-                    fontSize: fontSize.normal,
-                    margin: "0px 3px 0px 10px",
-                  }}
-                />
-                <Text textSize={fontSize.small}>info@gmail.com</Text>
-              </CustomDiv>
+              <Text fontSize={fontSize.small}>info@mail.com</Text>
             </CustomDiv>
-          </Grid>
-          <Grid item md={6} lg={6}>
-            <CustomDiv display="flex" justifyContent="flex-end">
-              <SocialIcons />
-            </CustomDiv>
-          </Grid>
+          </CustomDiv>
         </Grid>
-      </CustomDiv>
-    </Grid>
+        <Grid item xs={12} sm={12} md={6} lg={6}>
+          <CustomDiv
+            display="flex"
+            alignItems="center"
+            justifyContent={alignItemsInSecondDiv}
+            padding={paddingInDiv}
+          >
+            <SocialIcons />
+          </CustomDiv>
+        </Grid>
+      </Grid>
+    </CustomDiv>
   );
 };
-
 export default TopRow;
