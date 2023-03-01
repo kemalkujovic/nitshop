@@ -19,10 +19,10 @@ const Carousel = ({ data }) => {
   return (
     <SliderCarousel
       width="100%"
-      axis="horizontal"
+      axis='horizontal'
       showIndicators
       showThumbs={false}
-      interval={1000}
+      interval={5000}
       autoPlay
       infiniteLoop
       showStatus={false}

@@ -25,11 +25,7 @@ const Slider = () => {
   const deviceWidth = getScreenWidth();
 
   const setSliderMargin =
-    deviceWidth === "SM"
-      ? "0px"
-      : deviceWidth === "MD"
-      ? "0px 10px"
-      : "0px 10%";
+    deviceWidth === "SM" ? "0px" : deviceWidth === "MD" ? "0px 10px" : "0px";
 
   const setPaddingTop =
     deviceWidth === "SM" ? "10px" : deviceWidth === "MD" ? "20px" : "30px";
@@ -44,7 +40,7 @@ const Slider = () => {
   };
 
   return (
-    <Grid container direction='row'>
+    <Grid padding='10px 10%' container direction="row">
       <Grid item xs={12} sm={12} md={12} lg={12}>
         <SimplifiedDiv style={styles.sliderContainer}>
           <Carousel data={sliders} />

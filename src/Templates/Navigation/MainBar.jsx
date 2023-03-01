@@ -9,53 +9,64 @@ import StarIcon from "@mui/icons-material/Star";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LockIcon from "@mui/icons-material/Lock";
+import { getScreenWidth } from "../../util/helper";
+import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 const iconsStyle = {
   fontSize: fontSize.medium,
   color: colors.grayColor,
 };
 
-const RightMenu = () => (
-  <>
-    <CustomDiv
-      display="flex"
-      alignItems="center"
-      justifyContent="flex-end"
-      height="100%"
-    >
-      <CustomDiv display="flex" margin="0px 10px">
-        <PersonIcon style={iconsStyle} />
-        <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
-          Account
-        </Text>
-      </CustomDiv>
-      <CustomDiv display="flex" margin="0px 10px">
-        <StarIcon style={iconsStyle} />
-        <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
-          Wishlist
-        </Text>
-      </CustomDiv>
-      <CustomDiv display="flex" margin="0px 10px">
-        <LocationSearchingIcon style={iconsStyle} />
-        <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
-          Checkout
-        </Text>
-      </CustomDiv>
-      <CustomDiv display="flex" margin="0px 10px">
-        <ShoppingCartIcon style={iconsStyle} />
-        <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
-          Shop
-        </Text>
-      </CustomDiv>
-      <CustomDiv display="flex" margin="0px 10px">
-        <LockIcon style={iconsStyle} />
-        <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
-          Login
-        </Text>
-      </CustomDiv>
-    </CustomDiv>
-  </>
-);
 const MainBar = () => {
+  const screenWidth = getScreenWidth();
+const rightMenuMargin = screenWidth === 'SM' ? '10px 0px' : '0px'
+const rightMenuIconMargin = screenWidth === 'SM' ? '0px 5px' : '0px 10px'
+
+  const RightMenu = () => (
+    <>
+      <CustomDiv
+        display="flex"
+        alignItems="center"
+        justifyContent="flex-end"
+        height="100%"
+        width='100%'
+        margin={rightMenuMargin}
+      >
+        <CustomDiv display="flex" margin={rightMenuIconMargin}>
+          <PersonIcon style={iconsStyle} />
+          <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
+            Account
+          </Text>
+        </CustomDiv>
+        <CustomDiv display="flex" margin={rightMenuIconMargin}>
+          <StarIcon style={iconsStyle} />
+          <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
+            Wishlist
+          </Text>
+        </CustomDiv>
+        <CustomDiv display="flex" margin={rightMenuIconMargin}>
+          <LocationSearchingIcon style={iconsStyle} />
+          <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
+            Checkout
+          </Text>
+        </CustomDiv>
+        <CustomDiv display="flex" margin={rightMenuIconMargin}>
+          <ShoppingCartIcon style={iconsStyle} />
+          <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
+            Shop
+          </Text>
+        </CustomDiv>
+        <CustomDiv display="flex" margin={rightMenuIconMargin}>
+          <LockIcon style={iconsStyle} />
+          <Text fontSize={fontSize.smallPlus} color={colors.grayColor}>
+            Login
+          </Text>
+        </CustomDiv>
+      </CustomDiv>
+    </>
+  );
+
+  const alignLogo = screenWidth === "SM" ? "center" : "left";
+  const mainDivPadding = screenWidth === 'SM' ? '20px 0px' : '20px 10% 10px'
   return (
     <CustomDiv
       bgColor="white"
@@ -63,10 +74,13 @@ const MainBar = () => {
       height="auto"
       border="0px"
       display="flex"
-      padding="20px 10%"
+      padding={mainDivPadding}
     >
       <Grid container direction="row">
-        <Grid item lg={6}>
+        <Grid sm={12} xs={12} item lg={6}>
+          <SimplifiedDiv style={{
+            textAlign: alignLogo
+          }}>
           <img
             src={Logo}
             alt="Logo img"
@@ -75,8 +89,9 @@ const MainBar = () => {
               height: "auto",
             }}
           />
+          </SimplifiedDiv>
         </Grid>
-        <Grid item lg={6}>
+        <Grid item lg={6} sm={12} xs={12}>
           <RightMenu />
         </Grid>
         <CustomDiv
