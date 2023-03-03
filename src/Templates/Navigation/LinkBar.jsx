@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Grid } from "@mui/material";
 import CustomDiv from "../../components/CustomDiv/CustomDiv";
 import { colors, fontSize } from "../../util/theme";
+import TextField from "@mui/material/TextField";
+import InputAdornment from "@mui/material/InputAdornment";
+import SearchIcon from "@mui/icons-material/Search";
 import Text from "../../components/Text/Text";
 import SearchBar from "./SearchBar";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
@@ -28,7 +31,7 @@ const styles = {
     backgroundColor: "white",
   },
   linkMenu: {
-    backgroundColor: color.grayColor,
+    backgroundColor: colors.grayColor,
     textAlign: "left",
   },
 };
@@ -93,6 +96,7 @@ const LinkBar = (props) => {
       style={{
         display: "block",
         padding: "0px 10px",
+        width: "100%",
       }}
     >
       <SimplifiedDiv
@@ -102,7 +106,17 @@ const LinkBar = (props) => {
         }}
       >
         <Grid item xs={6} sm={6} md={6}>
-          <SearchBar />
+          <TextField
+            size="small"
+            label="Search"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <SearchIcon />
+                </InputAdornment>
+              ),
+            }}
+          />
         </Grid>
         <Grid item xs={6} sm={6} md={6}>
           <SimplifiedDiv
