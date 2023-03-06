@@ -33,14 +33,14 @@ const Slider = () => {
   const styles = {
     sliderContainer: {
       width: "100%",
-      height: "200px",
+      height: "auto",
       paddingTop: setPaddingTop,
       margin: setSliderMargin,
     },
   };
 
   return (
-    <Grid padding='10px 10%' container direction="row">
+    <Grid padding="10px 10%" container direction="row">
       <Grid item xs={12} sm={12} md={12} lg={12}>
         <SimplifiedDiv style={styles.sliderContainer}>
           <Carousel data={sliders} />

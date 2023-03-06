@@ -75,7 +75,18 @@ const LinkBar = (props) => {
               justifyContent="flex-end"
               height="100%"
             >
-              <SearchBar />
+              {/* <SearchBar /> */}
+              <TextField
+                size="small"
+                label="Search"
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <SearchIcon />
+                    </InputAdornment>
+                  ),
+                }}
+              />
             </CustomDiv>
           </Grid>
         </Grid>

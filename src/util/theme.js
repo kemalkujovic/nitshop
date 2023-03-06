@@ -1,11 +1,13 @@
-import { light } from "@mui/material/styles/createPalette";
-
 export const colors = {
   accentColor: "#e88f23",
   secondColor: "#F0F0E9",
   grayColor: "#828181",
   lightGrayColor: "#b3b1b1",
   orange: "#fe980f",
+  lightBlack: "#2e2d2d",
+  limeGreen: "#9de848",
+  lightRed: "#f23f35",
+  red: "red",
 };
 export const fontWeight = {
   light: "100",
@@ -17,6 +19,7 @@ export const fontWeight = {
 export const fontSize = {
   xSmall: "10px",
   small: "12px",
+  optimal: "13px",
   smallPlus: "14px",
   normal: "16px",
   medium: "18px",
