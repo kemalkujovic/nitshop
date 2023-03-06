@@ -50,31 +50,23 @@ const LinkBar = (props) => {
       >
         <Grid container direction="row">
           <Grid item lg={6} display="flex">
-            <CustomDiv margin="0px 15px 0px 0px">
+            <SimplifiedDiv style={styles.navBar}>
               <Text fontSize={fontSize.large} color={colors.orange}>
                 Home
               </Text>
-            </CustomDiv>
-            <CustomDiv margin="0px 15px 0px 0px">
               <Text fontSize={fontSize.large} color={colors.grayColor}>
                 Shop
               </Text>
-            </CustomDiv>
-            <CustomDiv margin="0px 15px 0px 0px">
               <Text fontSize={fontSize.large} color={colors.grayColor}>
                 Blog
               </Text>
-            </CustomDiv>
-            <CustomDiv margin="0px 15px 0px 0px">
               <Text fontSize={fontSize.large} color={colors.grayColor}>
                 O nama
               </Text>
-            </CustomDiv>
-            <CustomDiv margin="0px 15px 0px 0px">
               <Text fontSize={fontSize.large} color={colors.grayColor}>
                 Kontakt
               </Text>
-            </CustomDiv>
+            </SimplifiedDiv>
           </Grid>
           <Grid item lg={6}>
             <CustomDiv
@@ -91,7 +83,7 @@ const LinkBar = (props) => {
     </>
   );
 
-  const LinkBarSM = () => (
+  const LinkBarSM = ({ open }) => (
     <SimplifiedDiv
       style={{
         display: "block",
@@ -139,7 +131,25 @@ const LinkBar = (props) => {
           </SimplifiedDiv>
         </Grid>
       </SimplifiedDiv>
-      {isOpen && <SimplifiedDiv style={styles.linkMenu}></SimplifiedDiv>}
+      {isOpen && (
+        <SimplifiedDiv style={styles.linkMenu}>
+          <Text fontSize={fontSize.normal} color={colors.gray}>
+            Home
+          </Text>
+          <Text fontSize={fontSize.normal} color={colors.gray}>
+            Shop
+          </Text>
+          <Text fontSize={fontSize.normal} color={colors.gray}>
+            Blog
+          </Text>
+          <Text fontSize={fontSize.normal} color={colors.gray}>
+            About
+          </Text>
+          <Text fontSize={fontSize.normal} color={colors.gray}>
+            Kontakt
+          </Text>
+        </SimplifiedDiv>
+      )}
     </SimplifiedDiv>
   );
 
