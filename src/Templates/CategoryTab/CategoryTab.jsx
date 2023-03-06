@@ -13,7 +13,11 @@ const CategoryTab = () => {
       textAlign: "left",
     },
   };
-  return <SimplifiedDiv style={styles.container}></SimplifiedDiv>;
+  return (
+    <SimplifiedDiv style={styles.container}>
+      <p>Grid</p>
+    </SimplifiedDiv>
+  );
 };
 
 export default CategoryTab;
