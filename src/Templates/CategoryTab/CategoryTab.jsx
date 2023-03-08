@@ -33,7 +33,7 @@ const categories = [
     active: false,
   },
   {
-    name: "clothing",
+    name: "Clothing",
     active: false,
   },
   {
