@@ -67,7 +67,7 @@ const subCategory = [
     active: false,
   },
   {
-    categoryName: "Mens",
+    categoryName: "mens",
     name: "Nike",
     active: false,
   },
