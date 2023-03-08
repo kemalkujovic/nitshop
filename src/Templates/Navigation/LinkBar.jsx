@@ -6,7 +6,6 @@ import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
 import Text from "../../components/Text/Text";
-import SearchBar from "./SearchBar";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { getScreenWidth } from "../../util/helper";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -33,6 +32,12 @@ const styles = {
   linkMenu: {
     backgroundColor: colors.grayColor,
     textAlign: "left",
+    padding: "10px 20px",
+  },
+  links: {
+    padding: "10px 0px",
+    fontSize: fontSize.normal,
+    color: colors.white,
   },
 };
 const LinkBar = (props) => {
@@ -106,6 +111,7 @@ const LinkBar = (props) => {
         style={{
           display: "flex",
           alignItems: "center",
+          margin: "15px 0px",
         }}
       >
         <Grid item xs={6} sm={6} md={6}>
@@ -144,21 +150,11 @@ const LinkBar = (props) => {
       </SimplifiedDiv>
       {isOpen && (
         <SimplifiedDiv style={styles.linkMenu}>
-          <Text fontSize={fontSize.normal} color={colors.gray}>
-            Home
-          </Text>
-          <Text fontSize={fontSize.normal} color={colors.gray}>
-            Shop
-          </Text>
-          <Text fontSize={fontSize.normal} color={colors.gray}>
-            Blog
-          </Text>
-          <Text fontSize={fontSize.normal} color={colors.gray}>
-            About
-          </Text>
-          <Text fontSize={fontSize.normal} color={colors.gray}>
-            Kontakt
-          </Text>
+          <Text style={styles.links}>Home</Text>
+          <Text style={styles.links}>Shop</Text>
+          <Text style={styles.links}>Blog</Text>
+          <Text style={styles.links}>About</Text>
+          <Text style={styles.links}>Contact</Text>
         </SimplifiedDiv>
       )}
     </SimplifiedDiv>
