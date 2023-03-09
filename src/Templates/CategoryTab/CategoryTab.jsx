@@ -1,5 +1,4 @@
 import React from "react";
-import Text from "../../components/Text/Text";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import AddIcon from "@mui/icons-material/Add";
 import { colors } from "../../util/theme";
