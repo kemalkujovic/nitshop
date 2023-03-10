@@ -3,8 +3,7 @@ import { Carousel as SliderCarousel } from "react-responsive-carousel";
 import Text from "../Text/Text";
 import { colors, fontSize } from "../../util/theme";
 import SimplifiedDiv from "../SimplifiedDiv/SimplifiedDiv";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
+import { getScreenWidth } from "../../util/helper";
 
 const Carousel = ({ data }) => {
   const styles = {
@@ -15,14 +14,15 @@ const Carousel = ({ data }) => {
       right: 10,
     },
   };
-
+  const screenWidth = getScreenWidth();
+  const textScreen = screenWidth === "LG" ? true : false;
   return (
     <SliderCarousel
       width="100%"
       axis="horizontal"
       showIndicators
       showThumbs={false}
-      interval={1000}
+      interval={7000}
       autoPlay
       infiniteLoop
       showStatus={false}
@@ -31,19 +31,30 @@ const Carousel = ({ data }) => {
     >
       {data.map((d) => (
         <div key={d} style={{ height: "400px" }}>
+          {!textScreen && (
+            <Text
+              fontSize={fontSize.xLarge}
+              color={colors.gray}
+              textAlign="center"
+            >
+              {d.imgText}
+            </Text>
+          )}
           <img
             src={d.imgSrc}
             style={{ height: "100%", objectFit: "contain" }}
             alt={d.imgText}
           />
           <SimplifiedDiv style={styles.carouselText}>
-            <Text
-              fontSize={fontSize.xLarge}
-              color={colors.gray}
-              textAlign="left"
-            >
-              {d.imgText}
-            </Text>
+            {textScreen && (
+              <Text
+                fontSize={fontSize.xLarge}
+                color={colors.gray}
+                textAlign="left"
+              >
+                {d.imgText}
+              </Text>
+            )}
           </SimplifiedDiv>
         </div>
       ))}

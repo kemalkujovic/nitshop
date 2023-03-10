@@ -1,7 +1,9 @@
 import React from "react";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import AddIcon from "@mui/icons-material/Add";
-import { colors } from "../../util/theme";
+import { colors, fontSize } from "../../util/theme";
+import Text from "../../components/Text/Text";
+import { useState } from "react";
 const categories = [
   {
     name: "Sportswear",
@@ -77,6 +79,7 @@ const subCategory = [
   },
 ];
 const CategoryTab = () => {
+  const [isOpenCategory, setIsOpenCategory] = useState(false);
   const styles = {
     container: {
       // width: "100%",
@@ -89,16 +92,54 @@ const CategoryTab = () => {
       padding: "5px 0px",
       listStyle: "none",
     },
+    categoryContainer: {
+      display: "flex",
+      justifyContent: "space-between",
+      alignItems: "center",
+    },
+    addIconStyle: {
+      fontSize: fontSize.medium,
+      color: colors.accentColor,
+    },
+    subCategoryContainer: {
+      padding: "0px 10px",
+    },
+    subCategoryText: {
+      fontSize: fontSize.smallPlus,
+      color: colors.grayColor,
+      padding: "2px 0px",
+    },
   };
 
   return (
     <SimplifiedDiv style={styles.container}>
       <ul style={styles.category}>
-        {categories.map((cat) => {
+        {categories.map((cat, index) => {
+          const filteredSubcategories = subCategory.filter(
+            (sub) => sub.categoryName === cat.name
+          );
+
           return (
-            <li style={styles.category} key={cat.name}>
-              {cat.name}
-            </li>
+            <>
+              <SimplifiedDiv style={styles.categoryContainer}>
+                <li style={styles.category} key={cat.name}>
+                  {cat.name}
+                </li>
+                {filteredSubcategories.length > 0 && (
+                  <AddIcon
+                    style={styles.addIconStyle}
+                    onClick={() => setIsOpenCategory(!isOpenCategory)}
+                  />
+                )}
+              </SimplifiedDiv>
+              {filteredSubcategories.length > 0 && isOpenCategory && (
+                <SimplifiedDiv style={styles.subCategoryContainer}>
+                  {filteredSubcategories.map((sub) => (
+                    <Text style={styles.subCategoryText}>{sub.name}</Text>
+                  ))}
+                </SimplifiedDiv>
+              )}
+            </>
           );
         })}
       </ul>

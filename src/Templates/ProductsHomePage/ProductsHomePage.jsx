@@ -3,29 +3,38 @@ import React from "react";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import CategoryTab from "../CategoryTab/CategoryTab";
 import Text from "../../components/Text/Text";
+import { colors, fontSize, fontWeight } from "../../util/theme";
 const ProductsHomePage = () => {
   const styles = {
     container: {
       padding: "0px 10%",
     },
     headingContainer: {
+      display: "flex",
       width: "100%",
       textAlign: "center",
+      justifyContent: "center",
+      padding: "10px 0px",
+    },
+    headingText: {
+      fontSize: fontSize.large,
+      color: colors.accentColor,
+      fontWeight: fontWeight.mediumBold,
     },
   };
   return (
     <>
       <SimplifiedDiv style={styles.container}>
         <Grid container direction="row">
-          <Grid item md={3} lg={3}>
+          <Grid item md={3} lg={3} sm={12}>
             <SimplifiedDiv style={styles.headingContainer}>
-              <Text>Category</Text>
+              <Text style={styles.headingText}>Category</Text>
             </SimplifiedDiv>
             <CategoryTab />
           </Grid>
-          <Grid item md={9} lg={9}>
+          <Grid item md={9} lg={9} sm={12}>
             <SimplifiedDiv style={styles.headingContainer}>
-              <Text>Articles</Text>
+              <Text style={styles.headingText}>Articles</Text>
             </SimplifiedDiv>
           </Grid>
         </Grid>
