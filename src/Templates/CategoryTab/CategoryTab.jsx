@@ -80,6 +80,11 @@ const subCategory = [
 ];
 const CategoryTab = () => {
   const [isOpenCategory, setIsOpenCategory] = useState(false);
+  const [isActive, setIsActive] = useState(null);
+  function onHandler(index) {
+    setIsOpenCategory(!isOpenCategory);
+    setIsActive(index);
+  }
   const styles = {
     container: {
       // width: "100%",
@@ -128,17 +133,19 @@ const CategoryTab = () => {
                 {filteredSubcategories.length > 0 && (
                   <AddIcon
                     style={styles.addIconStyle}
-                    onClick={() => setIsOpenCategory(!isOpenCategory)}
+                    onClick={() => onHandler(index)}
                   />
                 )}
               </SimplifiedDiv>
-              {filteredSubcategories.length > 0 && isOpenCategory && (
-                <SimplifiedDiv style={styles.subCategoryContainer}>
-                  {filteredSubcategories.map((sub) => (
-                    <Text style={styles.subCategoryText}>{sub.name}</Text>
-                  ))}
-                </SimplifiedDiv>
-              )}
+              {filteredSubcategories.length > 0 &&
+                isActive === index &&
+                isOpenCategory && (
+                  <SimplifiedDiv style={styles.subCategoryContainer}>
+                    {filteredSubcategories.map((sub) => (
+                      <Text style={styles.subCategoryText}>{sub.name}</Text>
+                    ))}
+                  </SimplifiedDiv>
+                )}
             </>
           );
         })}
