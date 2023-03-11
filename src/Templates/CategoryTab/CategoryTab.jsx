@@ -8,10 +8,12 @@ const categories = [
   {
     name: "Sportswear",
     active: false,
+    subCategory: ["Nike", "Addidas", "Puma"],
   },
   {
     name: "Mens",
     active: false,
+    subCategory: ["Nike", "Addidas", "Puma"],
   },
   {
     name: "Womens",
@@ -46,44 +48,18 @@ const categories = [
     active: false,
   },
 ];
-const subCategory = [
-  {
-    categoryName: "Sportswear",
-    name: "Addidas",
-    active: false,
-  },
-  {
-    categoryName: "Sportswear",
-    name: "Nike",
-    active: false,
-  },
-  {
-    categoryName: "Sportswear",
-    name: "Puma",
-    active: false,
-  },
-  {
-    categoryName: "Mens",
-    name: "Addidas",
-    active: false,
-  },
-  {
-    categoryName: "Mens",
-    name: "Nike",
-    active: false,
-  },
-  {
-    categoryName: "Mens",
-    name: "Puma",
-    active: false,
-  },
-];
+
 const CategoryTab = () => {
-  const [isOpenCategory, setIsOpenCategory] = useState(false);
-  const [isActive, setIsActive] = useState(null);
-  function onHandler(index) {
-    setIsOpenCategory(!isOpenCategory);
-    setIsActive(index);
+  const [isOpen, setIsOpen] = useState([]);
+
+  function buttonHandler(index) {
+    setIsOpen((isOpen) => {
+      if (isOpen.includes(index)) {
+        return isOpen.filter((i) => i !== index);
+      } else {
+        return [...isOpen, index];
+      }
+    });
   }
   const styles = {
     container: {
@@ -120,32 +96,26 @@ const CategoryTab = () => {
     <SimplifiedDiv style={styles.container}>
       <ul style={styles.category}>
         {categories.map((cat, index) => {
-          const filteredSubcategories = subCategory.filter(
-            (sub) => sub.categoryName === cat.name
-          );
-
           return (
             <>
               <SimplifiedDiv style={styles.categoryContainer}>
                 <li style={styles.category} key={cat.name}>
                   {cat.name}
                 </li>
-                {filteredSubcategories.length > 0 && (
+                {cat.subCategory && (
                   <AddIcon
                     style={styles.addIconStyle}
-                    onClick={() => onHandler(index)}
+                    onClick={() => buttonHandler(index)}
                   />
                 )}
               </SimplifiedDiv>
-              {filteredSubcategories.length > 0 &&
-                isActive === index &&
-                isOpenCategory && (
-                  <SimplifiedDiv style={styles.subCategoryContainer}>
-                    {filteredSubcategories.map((sub) => (
-                      <Text style={styles.subCategoryText}>{sub.name}</Text>
-                    ))}
-                  </SimplifiedDiv>
-                )}
+              {cat.subCategory && isOpen.includes(index) && (
+                <SimplifiedDiv style={styles.subCategoryContainer}>
+                  {cat.subCategory.map((sub) => (
+                    <Text style={styles.subCategoryText}>{sub}</Text>
+                  ))}
+                </SimplifiedDiv>
+              )}
             </>
           );
         })}
