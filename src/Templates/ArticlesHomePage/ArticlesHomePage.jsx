@@ -7,7 +7,7 @@ const ArticlesHomePage = () => {
 
   return (
     <SimplifiedDiv style={{}}>
-      <Grid container gap={5} direction="row">
+      <Grid container gap={2} direction="row">
         <Grid item lg={4} md={4}>
           <ArticleCard />
         </Grid>
