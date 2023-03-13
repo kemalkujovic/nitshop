@@ -26,13 +26,13 @@ const ProductsHomePage = () => {
     <>
       <SimplifiedDiv style={styles.container}>
         <Grid container direction="row">
-          <Grid item md={3} lg={3} sm={12}>
+          <Grid item md={3} lg={3} xs={12} sm={12}>
             <SimplifiedDiv style={styles.headingContainer}>
               <Text style={styles.headingText}>Category</Text>
             </SimplifiedDiv>
             <CategoryTab />
           </Grid>
-          <Grid item md={9} lg={9} sm={12}>
+          <Grid item md={9} lg={9} xs={12} sm={12}>
             <SimplifiedDiv style={styles.headingContainer}>
               <Text style={styles.headingText}>Articles</Text>
             </SimplifiedDiv>
