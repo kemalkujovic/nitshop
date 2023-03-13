@@ -63,7 +63,6 @@ const CategoryTab = () => {
   }
   const styles = {
     container: {
-      // width: "100%",
       border: `0.5px solid ${colors.lightGrayColor}`,
       borderRadius: "2px",
       textAlign: "left",
