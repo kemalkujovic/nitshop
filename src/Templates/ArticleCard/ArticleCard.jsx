@@ -43,7 +43,9 @@ const ArticleCard = ({ title, description, image, price, onShowMore }) => {
         <Text fontSize={fontSize.optimal}>{description}</Text>
       </SimplifiedDiv>
       <SimplifiedDiv style={styles.buttonHolder}>
-        <PrimaryButton primary onClick={onShowMore}>Show more</PrimaryButton>
+        <PrimaryButton primary onClick={onShowMore}>
+          Show more!
+        </PrimaryButton>
       </SimplifiedDiv>
     </Card>
   );
