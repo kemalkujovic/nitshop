@@ -3,8 +3,6 @@ import ArticleCard from "../ArticleCard/ArticleCard";
 import { Grid } from "@mui/material";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 const ArticlesHomePage = () => {
-  // POSTAVITI FUNKCIJE KOJE CE IZLISTAVATI ARTIKLE
-
   return (
     <SimplifiedDiv style={{}}>
       <Grid container gap={2} direction="row">
