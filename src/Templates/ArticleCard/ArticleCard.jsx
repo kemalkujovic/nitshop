@@ -3,29 +3,37 @@ import { Card } from "@mui/material";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import Text from "../../components/Text/Text";
 import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
-import { colors, fontSize } from "../../util/theme";
-
+import { colors, fontSize, fontWeight } from "../../util/theme";
+import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
+// shop cart napraviti tacno
 const ArticleCard = ({ title, description, image, price, onShowMore }) => {
   const styles = {
     imageContainer: {
       width: "100%",
-      height: "200px",
-      objectFit: "cover",
+      height: "x`",
     },
     image: {
-      objectFit: "cover",
+      objectFit: "contain",
       width: "100%",
       height: "100%",
     },
 
     descriptionContainer: {
       display: "flex",
+      flexDirection: "column",
       textAlign: "center",
       alignItems: "center",
+      gap: "10px",
+      margin: "10px 15px",
     },
     buttonHolder: {
       display: "flex",
       justifyContent: "center",
+      padding: "10px",
+    },
+    shoppingCartIcon: {
+      fontSize: fontSize.normal,
+      margin: "0px 3px",
     },
   };
   const altTag = title !== "" ? title : "Article Image";
@@ -33,18 +41,32 @@ const ArticleCard = ({ title, description, image, price, onShowMore }) => {
   return (
     <Card>
       <SimplifiedDiv style={styles.imageContainer}>
-        <img alt={altTag} style={styles.image} />
+        <img alt={altTag} style={styles.image} src={image} />
       </SimplifiedDiv>
       <SimplifiedDiv style={styles.descriptionContainer}>
-        <Text color={colors.accentColor} fontSize={fontSize.large}>
+        <Text
+          color={colors.accentColor}
+          fontWeight={fontWeight.mediumBold}
+          fontSize={fontSize.large}
+        >
           {price}
         </Text>
         <Text fontSize={fontSize.medium}>{title}</Text>
-        <Text fontSize={fontSize.optimal}>{description}</Text>
+        <Text color={colors.lightBlack} fontSize={fontSize.optimal}>
+          {description.length > 70
+            ? description.slice(0, 70) + "..."
+            : description}
+        </Text>
       </SimplifiedDiv>
       <SimplifiedDiv style={styles.buttonHolder}>
-        <PrimaryButton primary onClick={onShowMore}>
-          Show more!
+        <PrimaryButton
+          primary
+          onClick={onShowMore}
+          borderRadius="3px"
+          padding="10px"
+        >
+          <ShoppingCartOutlined style={styles.shoppingCartIcon} />
+          Add to cart!
         </PrimaryButton>
       </SimplifiedDiv>
     </Card>

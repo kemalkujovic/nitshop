@@ -26,7 +26,7 @@ const ProductsHomePage = () => {
   return (
     <>
       <SimplifiedDiv style={styles.container}>
-        <Grid container direction="row">
+        <Grid container direction="row" spacing={5} >
           <Grid item md={3} lg={3} xs={12} sm={12}>
             <SimplifiedDiv style={styles.headingContainer}>
               <Text style={styles.headingText}>Category</Text>
@@ -37,7 +37,7 @@ const ProductsHomePage = () => {
             <SimplifiedDiv style={styles.headingContainer}>
               <Text style={styles.headingText}>Articles</Text>
             </SimplifiedDiv>
-              <ArticlesHomePage />
+            <ArticlesHomePage />
           </Grid>
         </Grid>
       </SimplifiedDiv>
