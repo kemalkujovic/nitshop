@@ -8,7 +8,7 @@ import article3 from "../../assets/images/home/product3.jpg";
 const descriptionText =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry.text of the printing and typesettingtext of the printing and typesettingtext of the printing and typesettingtext of the printing and typesetting";
 
-const articles = [
+export const articles = [
   {
     title: "Article 1",
     description: descriptionText,

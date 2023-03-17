@@ -5,6 +5,7 @@ import CategoryTab from "../CategoryTab/CategoryTab";
 import Text from "../../components/Text/Text";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import ArticlesHomePage from "../ArticlesHomePage/ArticlesHomePage";
+import SuggestedCarousel from "../SuggestedCarousel/SuggestedCarousel";
 const ProductsHomePage = () => {
   const styles = {
     container: {
@@ -26,7 +27,7 @@ const ProductsHomePage = () => {
   return (
     <>
       <SimplifiedDiv style={styles.container}>
-        <Grid container direction="row" spacing={5} >
+        <Grid container direction="row" spacing={5}>
           <Grid item md={3} lg={3} xs={12} sm={12}>
             <SimplifiedDiv style={styles.headingContainer}>
               <Text style={styles.headingText}>Category</Text>
@@ -38,6 +39,7 @@ const ProductsHomePage = () => {
               <Text style={styles.headingText}>Articles</Text>
             </SimplifiedDiv>
             <ArticlesHomePage />
+            <SuggestedCarousel />
           </Grid>
         </Grid>
       </SimplifiedDiv>
