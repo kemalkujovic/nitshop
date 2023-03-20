@@ -1,7 +1,7 @@
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel as SliderCarousel } from "react-responsive-carousel";
 import Text from "../Text/Text";
-import { colors, fontSize } from "../../util/theme";
+import { colors, fontFamily, fontSize } from "../../util/theme";
 import SimplifiedDiv from "../SimplifiedDiv/SimplifiedDiv";
 import { getScreenWidth } from "../../util/helper";
 
@@ -48,6 +48,7 @@ const Carousel = ({ data }) => {
           <SimplifiedDiv style={styles.carouselText}>
             {textScreen && (
               <Text
+                fontFamily={fontFamily.LatoRegular}
                 fontSize={fontSize.xLarge}
                 color={colors.gray}
                 textAlign="left"

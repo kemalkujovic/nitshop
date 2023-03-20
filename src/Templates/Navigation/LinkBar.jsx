@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Grid } from "@mui/material";
 import CustomDiv from "../../components/CustomDiv/CustomDiv";
-import { colors, fontSize } from "../../util/theme";
+import { colors, fontFamily, fontSize } from "../../util/theme";
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import SearchIcon from "@mui/icons-material/Search";
@@ -38,6 +38,12 @@ const styles = {
     padding: "10px 0px",
     fontSize: fontSize.normal,
     color: colors.white,
+    fontFamily: fontFamily.MontserratBlack,
+  },
+  linkLG: {
+    fontFamily: fontFamily.latoRegular,
+    fontSize: fontSize.large,
+    color: colors.grayColor,
   },
 };
 const LinkBar = (props) => {
@@ -56,21 +62,11 @@ const LinkBar = (props) => {
         <Grid container direction="row">
           <Grid item lg={6} display="flex">
             <SimplifiedDiv style={styles.navBar}>
-              <Text fontSize={fontSize.large} color={colors.orange}>
-                Home
-              </Text>
-              <Text fontSize={fontSize.large} color={colors.grayColor}>
-                Shop
-              </Text>
-              <Text fontSize={fontSize.large} color={colors.grayColor}>
-                Blog
-              </Text>
-              <Text fontSize={fontSize.large} color={colors.grayColor}>
-                O nama
-              </Text>
-              <Text fontSize={fontSize.large} color={colors.grayColor}>
-                Kontakt
-              </Text>
+              <Text style={styles.linkLG}>Home</Text>
+              <Text style={styles.linkLG}>Shop</Text>
+              <Text style={styles.linkLG}>Blog</Text>
+              <Text style={styles.linkLG}>O nama</Text>
+              <Text style={styles.linkLG}>Kontakt</Text>
             </SimplifiedDiv>
           </Grid>
           <Grid item lg={6}>

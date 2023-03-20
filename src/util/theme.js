@@ -28,3 +28,23 @@ export const fontSize = {
   large: "24px",
   xLarge: "36px",
 };
+
+export const fontFamily = {
+  LatoBlack: "LatoBlack",
+  LatoBlackItalic: "LatoBlackItalic",
+  LatoBold: "LatoBold",
+  LatoBoldItalic: "LatoBoldItalic",
+  LatoLightItalic: "LatoLightItalic",
+  LatoRegular: "LatoRegular",
+  LatoThin: "LatoThin",
+  LatoThinItalic: "LatoThinItalic",
+  MontserratBlack: "MontserratBlack",
+  MontserratBlackItalic: "MontserratBlackItalic",
+  MontserratBold: "MontserratBold",
+  MontserratBoldItalic: "MontserratBoldItalic",
+  MontserratExtraBold: "MontserratExtraBold",
+  MontserratExtraBoldItalic: "MontserratExtraBoldItalic",
+  MontserratExtraLight: "MontserratExtraLight",
+  MontserratExtraLightItalic: "MontserratExtraLightItalic",
+  MontserratItalicVariableFontWght: "MontserratItalicVariableFontWght",
+};
