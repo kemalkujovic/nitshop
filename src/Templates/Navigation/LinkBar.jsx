@@ -9,6 +9,7 @@ import Text from "../../components/Text/Text";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { getScreenWidth } from "../../util/helper";
 import MenuIcon from "@mui/icons-material/Menu";
+import { Link } from "react-router-dom";
 
 const styles = {
   navBar: {
@@ -62,11 +63,13 @@ const LinkBar = (props) => {
         <Grid container direction="row">
           <Grid item lg={6} display="flex">
             <SimplifiedDiv style={styles.navBar}>
-              <Text style={styles.linkLG}>Home</Text>
-              <Text style={styles.linkLG}>Shop</Text>
-              <Text style={styles.linkLG}>Blog</Text>
-              <Text style={styles.linkLG}>O nama</Text>
-              <Text style={styles.linkLG}>Kontakt</Text>
+              <Link to='/' style={styles.linkLG}>Home</Link>
+              <Link to="/shop" style={styles.linkLG}>
+                Shop
+              </Link>
+              <Link style={styles.linkLG}>Blog</Link>
+              <Link style={styles.linkLG}>O nama</Link>
+              <Link style={styles.linkLG}>Kontakt</Link>
             </SimplifiedDiv>
           </Grid>
           <Grid item lg={6}>
