@@ -43,7 +43,7 @@ const styles = {
   linksLG: {
     fontFamily: fontFamily.LatoRegular,
     fontSize: fontSize.normal,
-    color: colors.gray,
+    color: colors.grayColor,
   },
 };
 
@@ -53,39 +53,39 @@ const LinkBar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const LinkBarLG = () => (
-    <CustomDiv display='flex' padding='0px 10%' width='100%'>
-      <Grid container direction='row'>
+    <CustomDiv display="flex" padding="0px 10%" width="100%">
+      <Grid container direction="row">
         <Grid item sm={6} md={6} lg={6}>
           <SimplifiedDiv style={styles.navBar}>
-            <Link to='/' style={styles.linksLG}>
+            <Link to="/" style={styles.linksLG}>
               Home
             </Link>
-            <Link to='/shop' style={styles.linksLG}>
+            <Link to="/shop" style={styles.linksLG}>
               Shop
             </Link>
-            <Link to='/blog' style={styles.linksLG}>
+            <Link to="/blog" style={styles.linksLG}>
               Blog
             </Link>
-            <Link to='/about' style={styles.linksLG}>
+            <Link to="/about" style={styles.linksLG}>
               About
             </Link>
-            <Link to='/contact' style={styles.linksLG}>
+            <Link to="/contact" style={styles.linksLG}>
               Contact
             </Link>
           </SimplifiedDiv>
         </Grid>
         <Grid item sm={6} md={6} lg={6}>
           <CustomDiv
-            display='flex'
-            alignItems='center'
-            justifyContent='flex-end'
+            display="flex"
+            alignItems="center"
+            justifyContent="flex-end"
           >
             <TextField
-              size='small'
-              label='Search'
+              size="small"
+              label="Search"
               InputProps={{
                 endAdornment: (
-                  <InputAdornment position='end'>
+                  <InputAdornment position="end">
                     <SearchIcon />
                   </InputAdornment>
                 ),
@@ -113,11 +113,11 @@ const LinkBar = () => {
       >
         <Grid item xs={6} sm={6} md={6}>
           <TextField
-            size='small'
-            label='Search'
+            size="small"
+            label="Search"
             InputProps={{
               endAdornment: (
-                <InputAdornment position='end'>
+                <InputAdornment position="end">
                   <SearchIcon />
                 </InputAdornment>
               ),

@@ -7,7 +7,6 @@ import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { Grid } from "@mui/material";
 import Text from "../../components/Text/Text";
 import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
-import StyleButton from "../../components/styleButton/styleButton";
 const ItemsProduct = () => {
   const articalData = [
     {
@@ -48,7 +47,7 @@ const ItemsProduct = () => {
     },
     articleDiv: {
       display: "flex",
-      padding: "10px 20px",
+      padding: "20px 20px",
       borderBottom: "0.5px solid silver",
     },
     priceDiv: {
@@ -59,7 +58,7 @@ const ItemsProduct = () => {
       marginRight: "50px",
     },
     styleButton: {
-      backgroundColor: "gray",
+      backgroundColor: colors.lightGrayColor,
       width: "30px",
       height: "30px",
       border: "0px",
@@ -76,16 +75,16 @@ const ItemsProduct = () => {
   return (
     <SimplifiedDiv style={styles.mainDiv}>
       <Grid container direction="row" lg={12} style={styles.divHeader}>
-        <Grid lg={6} item>
+        <Grid lg={6} md={6} item>
           <Text>Item</Text>
         </Grid>
-        <Grid lg={3} item>
+        <Grid lg={3} md={3} item>
           <SimplifiedDiv style={styles.priceDiv}>
             <Text style={styles.textItems}>Price</Text>
             <Text style={styles.textItems}>Quantity</Text>
           </SimplifiedDiv>
         </Grid>
-        <Grid lg={2} item>
+        <Grid lg={2} md={3} item>
           <Text textAlign="center">Total</Text>
         </Grid>
       </Grid>
@@ -100,14 +99,21 @@ const ItemsProduct = () => {
               direction="row"
               lg={12}
             >
-              <Grid lg={6} alignItems="center" container item>
-                <img src={data.imgSrc} />
+              <Grid lg={6} md={6} alignItems="center" container item>
+                <img style={styles.textItems} src={data.imgSrc} />
                 <SimplifiedDiv>
-                  <Text>{data.name}</Text>
-                  <Text>{data.productId}</Text>
+                  <Text fontSize={fontSize.large}>{data.name}</Text>
+                  <Text fontSize={fontSize.normal}>{data.productId}</Text>
                 </SimplifiedDiv>
               </Grid>
-              <Grid lg={3} item container direction="row" alignItems="center">
+              <Grid
+                lg={3}
+                md={3}
+                item
+                container
+                direction="row"
+                alignItems="center"
+              >
                 <Text style={styles.textItems}>{data.price}</Text>
                 <PrimaryButton style={styles.styleButton}>+</PrimaryButton>
                 <input style={styles.styleInput} value={1} />
@@ -115,12 +121,15 @@ const ItemsProduct = () => {
               </Grid>
               <Grid
                 lg={2}
+                md={2}
                 item
                 display="flex"
                 alignItems="center"
                 justifyContent="center"
               >
-                <Text textAlign="center">{data.total}</Text>
+                <Text color={colors.accentColor} textAlign="center">
+                  {data.total}
+                </Text>
               </Grid>
               <Grid display="flex" item alignItems="center">
                 <PrimaryButton style={styles.styleButton}>X</PrimaryButton>

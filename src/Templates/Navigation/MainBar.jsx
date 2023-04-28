@@ -13,7 +13,8 @@ import { getScreenWidth } from "../../util/helper";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { Link } from "react-router-dom";
 const iconStyle = {
-  fontSize: fontSize.medium,
+  fontFamily: fontFamily.LatoRegular,
+  fontSize: fontSize.normal,
   color: colors.grayColor,
 };
 
@@ -35,54 +36,25 @@ const MainBar = () => {
     >
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <PersonIcon style={iconStyle} />
-        <Text
-          fontFamily={fontFamily.LatoRegular}
-          fontSize={fontSize.smallPlus}
-          color={colors.gray}
-        >
-          Account
-        </Text>
+        <Text style={iconStyle}>Account</Text>
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <StarIcon style={iconStyle} />
-        <Text
-          fontSize={fontSize.smallPlus}
-          fontFamily={fontFamily.LatoRegular}
-          color={colors.gray}
-        >
-          Wishlist
-        </Text>
+        <Text style={iconStyle}>Wishlist</Text>
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <LocationSearchingIcon style={iconStyle} />
-        <Text
-          fontFamily={fontFamily.LatoRegular}
-          fontSize={fontSize.smallPlus}
-          color={colors.gray}
-        >
-          Checkout
-        </Text>
+        <Text style={iconStyle}>Checkout</Text>
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <ShoppingCartIcon style={iconStyle} />
-        <Link
-          to='/cart'
-          fontFamily={fontFamily.LatoRegular}
-          fontSize={fontSize.smallPlus}
-          color={colors.gray}
-        >
+        <Link to="/cart" style={iconStyle}>
           Cart
         </Link>
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <LockIcon style={iconStyle} />
-        <Text
-          fontFamily={fontFamily.LatoRegular}
-          fontSize={fontSize.smallPlus}
-          color={colors.gray}
-        >
-          Login
-        </Text>
+        <Text style={iconStyle}>Login</Text>
       </CustomDiv>
     </CustomDiv>
   );
