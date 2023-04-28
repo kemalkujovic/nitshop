@@ -34,6 +34,7 @@ import BlogScreenf from "./Screens/BlogScreen/BlogScreen";
 import BlogScreen from "./Screens/BlogScreen/BlogScreen";
 import AboutScreen from "./Screens/AboutScreen/AboutScreen";
 import ContactScreen from "./Screens/ContactScreen/ContactScreen";
+import CartScreen from "./Screens/CartScreen/CartScreen";
 
 const App = () => {
   const router = createBrowserRouter([
@@ -57,6 +58,10 @@ const App = () => {
       path: "/contact",
       element: <ContactScreen />,
     },
+    {
+      path: "/cart",
+      element: <CartScreen />,
+    }
   ]);
   return (
     <>

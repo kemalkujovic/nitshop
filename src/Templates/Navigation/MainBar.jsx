@@ -11,6 +11,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LockIcon from "@mui/icons-material/Lock";
 import { getScreenWidth } from "../../util/helper";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
+import { Link } from "react-router-dom";
 const iconStyle = {
   fontSize: fontSize.medium,
   color: colors.grayColor,
@@ -64,13 +65,14 @@ const MainBar = () => {
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <ShoppingCartIcon style={iconStyle} />
-        <Text
+        <Link
+          to='/cart'
           fontFamily={fontFamily.LatoRegular}
           fontSize={fontSize.smallPlus}
           color={colors.gray}
         >
           Cart
-        </Text>
+        </Link>
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <LockIcon style={iconStyle} />
