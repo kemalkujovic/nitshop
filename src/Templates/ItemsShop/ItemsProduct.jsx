@@ -44,14 +44,12 @@ const ItemsProduct = () => {
       display: "flex",
       backgroundColor: "orange",
       color: colors.white,
-      justifyContent: "space-between",
-      padding: "10px 50px",
+      padding: "10px 20px",
     },
     articleDiv: {
       display: "flex",
       padding: "10px 20px",
       borderBottom: "0.5px solid silver",
-      justifyContent: "space-between",
     },
     priceDiv: {
       display: "flex",
@@ -62,27 +60,36 @@ const ItemsProduct = () => {
     },
     styleButton: {
       backgroundColor: "gray",
-      width: "40px",
-      height: "40px",
+      width: "30px",
+      height: "30px",
       border: "0px",
+      justifyContent: "center",
+      color: colors.white,
     },
     styleInput: {
       width: "40px",
       height: "32px",
+      textAlign: "center",
     },
   };
 
   return (
     <SimplifiedDiv style={styles.mainDiv}>
-      <SimplifiedDiv style={styles.divHeader}>
-        <Text>Item</Text>
-        <SimplifiedDiv style={styles.priceDiv}>
-          <Text style={styles.textItems}>Price</Text>
-          <Text style={styles.textItems}>Quantity</Text>
-        </SimplifiedDiv>
-        <Text>Total</Text>
-      </SimplifiedDiv>
-      <Grid container item direction="column">
+      <Grid container direction="row" lg={12} style={styles.divHeader}>
+        <Grid lg={6} item>
+          <Text>Item</Text>
+        </Grid>
+        <Grid lg={3} item>
+          <SimplifiedDiv style={styles.priceDiv}>
+            <Text style={styles.textItems}>Price</Text>
+            <Text style={styles.textItems}>Quantity</Text>
+          </SimplifiedDiv>
+        </Grid>
+        <Grid lg={2} item>
+          <Text textAlign="center">Total</Text>
+        </Grid>
+      </Grid>
+      <Grid container lg={12} item direction="column">
         {articalData.map((data) => {
           return (
             <Grid
@@ -91,22 +98,33 @@ const ItemsProduct = () => {
               container
               item
               direction="row"
+              lg={12}
             >
-              <SimplifiedDiv style={styles.priceDiv}>
+              <Grid lg={6} alignItems="center" container item>
                 <img src={data.imgSrc} />
                 <SimplifiedDiv>
                   <Text>{data.name}</Text>
                   <Text>{data.productId}</Text>
                 </SimplifiedDiv>
-              </SimplifiedDiv>
-
-              <SimplifiedDiv style={styles.priceDiv}>
-                <Text>{data.price}</Text>
+              </Grid>
+              <Grid lg={3} item container direction="row" alignItems="center">
+                <Text style={styles.textItems}>{data.price}</Text>
                 <PrimaryButton style={styles.styleButton}>+</PrimaryButton>
                 <input style={styles.styleInput} value={1} />
                 <PrimaryButton style={styles.styleButton}>-</PrimaryButton>
-              </SimplifiedDiv>
-              <Text>{data.total}</Text>
+              </Grid>
+              <Grid
+                lg={2}
+                item
+                display="flex"
+                alignItems="center"
+                justifyContent="center"
+              >
+                <Text textAlign="center">{data.total}</Text>
+              </Grid>
+              <Grid display="flex" item alignItems="center">
+                <PrimaryButton style={styles.styleButton}>X</PrimaryButton>
+              </Grid>
             </Grid>
           );
         })}
