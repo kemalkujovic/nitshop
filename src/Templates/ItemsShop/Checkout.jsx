@@ -74,7 +74,7 @@ const Checkout = () => {
   return (
     <SimplifiedDiv style={styles.mainDiv}>
       <Grid container item>
-        <Grid lg={6} item>
+        <Grid xs={12} sm={12} md={12} lg={6} item>
           <SimplifiedDiv style={styles.containerCheck}>
             <SimplifiedDiv style={styles.wrapperCheckBox}>
               <input style={styles.inputCheckbox} type="checkbox" id="scales" />
@@ -114,7 +114,7 @@ const Checkout = () => {
             </SimplifiedDiv>
           </SimplifiedDiv>
         </Grid>
-        <Grid lg={6} item>
+        <Grid xs={12} sm={12} md={12} lg={6} item>
           <SimplifiedDiv style={styles.containerInfo}>
             <SimplifiedDiv style={styles.buttonMargin}>
               <SimplifiedDiv style={styles.wrapperTax}>
