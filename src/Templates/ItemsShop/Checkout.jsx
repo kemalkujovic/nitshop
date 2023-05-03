@@ -48,7 +48,6 @@ const Checkout = () => {
       fontSize: fontSize.optimal,
     },
     wrapperTax: {
-      width: "95%",
       padding: "2px 20px",
       display: "flex",
       justifyContent: "space-between",
@@ -74,7 +73,7 @@ const Checkout = () => {
   return (
     <SimplifiedDiv style={styles.mainDiv}>
       <Grid container item>
-        <Grid xs={12} sm={12} md={12} lg={6} item>
+        <Grid xs={12} sm={12} md={12} lg={6}>
           <SimplifiedDiv style={styles.containerCheck}>
             <SimplifiedDiv style={styles.wrapperCheckBox}>
               <input style={styles.inputCheckbox} type="checkbox" id="scales" />
@@ -114,7 +113,7 @@ const Checkout = () => {
             </SimplifiedDiv>
           </SimplifiedDiv>
         </Grid>
-        <Grid xs={12} sm={12} md={12} lg={6} item>
+        <Grid xs={12} sm={12} md={12} lg={6}>
           <SimplifiedDiv style={styles.containerInfo}>
             <SimplifiedDiv style={styles.buttonMargin}>
               <SimplifiedDiv style={styles.wrapperTax}>
