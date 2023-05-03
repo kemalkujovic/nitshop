@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import artical1 from "../../assets/images/cart/one.png";
 import artical2 from "../../assets/images/cart/two.png";
 import artical3 from "../../assets/images/cart/three.png";
@@ -8,6 +8,8 @@ import { Grid } from "@mui/material";
 import Text from "../../components/Text/Text";
 import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 const ItemsProduct = () => {
+  const [counter, setCounter] = useState(1);
+
   const articalData = [
     {
       imgSrc: artical1,
@@ -71,7 +73,7 @@ const ItemsProduct = () => {
       textAlign: "center",
     },
   };
-
+  const counterHandler = (e) => {};
   return (
     <SimplifiedDiv style={styles.mainDiv}>
       <Grid container direction="row" lg={12} style={styles.divHeader}>
@@ -115,7 +117,12 @@ const ItemsProduct = () => {
                 alignItems="center"
               >
                 <Text style={styles.textItems}>{data.price}</Text>
-                <PrimaryButton style={styles.styleButton}>+</PrimaryButton>
+                <PrimaryButton
+                  onClick={(e) => counterHandler(e)}
+                  style={styles.styleButton}
+                >
+                  +
+                </PrimaryButton>
                 <input style={styles.styleInput} value={1} />
                 <PrimaryButton style={styles.styleButton}>-</PrimaryButton>
               </Grid>
