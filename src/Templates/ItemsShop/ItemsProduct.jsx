@@ -8,31 +8,58 @@ import { Grid } from "@mui/material";
 import Text from "../../components/Text/Text";
 import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 const ItemsProduct = () => {
-  const [counter, setCounter] = useState(1);
-
-  const articalData = [
+  const [products, setProducts] = useState([
     {
       imgSrc: artical1,
       name: "Colorblock Scuba",
       productId: "Web ID: 1089722",
       price: "$59",
-      total: "$59",
+      id: 1,
+      quantity: 1,
     },
     {
       imgSrc: artical2,
       name: "Colorblock Scuba",
       productId: "Web ID: 1089722",
       price: "$59",
-      total: "$59",
+      id: 2,
+      quantity: 1,
     },
     {
       imgSrc: artical3,
       name: "Colorblock Scuba",
       productId: "Web ID: 1089722",
       price: "$59",
-      total: "$59",
+      id: 3,
+      quantity: 1,
     },
-  ];
+  ]);
+
+  const handlerIncrament = (productId) => {
+    const updateProducts = products.map((product) => {
+      if (product.id === productId) {
+        return { ...product, quantity: product.quantity + 1 };
+      } else {
+        return product;
+      }
+    });
+    setProducts(updateProducts);
+  };
+  const handlerDecrement = (productId) => {
+    const updateProducts = products.map((product) => {
+      if (product.id === productId) {
+        return { ...product, quantity: product.quantity - 1 };
+      } else {
+        return product;
+      }
+    });
+    setProducts(updateProducts);
+  };
+  const removeHandler = (productId) => {
+    setProducts((prevItems) =>
+      prevItems.filter((product) => productId !== product.id)
+    );
+  };
 
   const styles = {
     mainDiv: {
@@ -63,7 +90,7 @@ const ItemsProduct = () => {
       backgroundColor: colors.lightGrayColor,
       width: "30px",
       height: "30px",
-      border: "0px",
+      border: "none",
       justifyContent: "center",
       color: colors.white,
     },
@@ -73,7 +100,6 @@ const ItemsProduct = () => {
       textAlign: "center",
     },
   };
-  const counterHandler = (e) => {};
   return (
     <SimplifiedDiv style={styles.mainDiv}>
       <Grid container direction="row" lg={12} style={styles.divHeader}>
@@ -91,11 +117,11 @@ const ItemsProduct = () => {
         </Grid>
       </Grid>
       <Grid container lg={12} item direction="column">
-        {articalData.map((data) => {
+        {products.map((data) => {
           return (
             <Grid
               style={styles.articleDiv}
-              key={data.name}
+              key={data.id}
               container
               item
               direction="row"
@@ -118,13 +144,18 @@ const ItemsProduct = () => {
               >
                 <Text style={styles.textItems}>{data.price}</Text>
                 <PrimaryButton
-                  onClick={(e) => counterHandler(e)}
+                  onClick={() => handlerIncrament(data.id)}
                   style={styles.styleButton}
                 >
                   +
                 </PrimaryButton>
-                <input style={styles.styleInput} value={1} />
-                <PrimaryButton style={styles.styleButton}>-</PrimaryButton>
+                <input style={styles.styleInput} value={data.quantity} />
+                <PrimaryButton
+                  style={styles.styleButton}
+                  onClick={() => handlerDecrement(data.id)}
+                >
+                  -
+                </PrimaryButton>
               </Grid>
               <Grid
                 lg={2}
@@ -139,7 +170,12 @@ const ItemsProduct = () => {
                 </Text>
               </Grid>
               <Grid display="flex" item alignItems="center">
-                <PrimaryButton style={styles.styleButton}>X</PrimaryButton>
+                <PrimaryButton
+                  onClick={() => removeHandler(data.id)}
+                  style={styles.styleButton}
+                >
+                  X
+                </PrimaryButton>
               </Grid>
             </Grid>
           );
