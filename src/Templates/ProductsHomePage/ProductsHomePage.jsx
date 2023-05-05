@@ -6,6 +6,7 @@ import Text from "../../components/Text/Text";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import ArticlesHomePage from "../ArticlesHomePage/ArticlesHomePage";
 import SuggestedCarousel from "../SuggestedCarousel/SuggestedCarousel";
+import { CartContext } from "../../context/CartContext";
 const ProductsHomePage = () => {
   const styles = {
     container: {
@@ -24,6 +25,7 @@ const ProductsHomePage = () => {
       fontWeight: fontWeight.mediumBold,
     },
   };
+
   return (
     <>
       <SimplifiedDiv style={styles.container}>

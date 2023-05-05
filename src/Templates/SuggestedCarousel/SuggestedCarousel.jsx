@@ -16,6 +16,7 @@ const SuggestedCarousel = () => {
       <Carousel
         showIndicators={false}
         showStatus={false}
+        showThumbs={false}
         infiniteLoop
         interval={1000}
         swipeable
