@@ -6,7 +6,7 @@ import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
 // shop cart napraviti tacno
-const ArticleCard = ({ title, description, image, price, onShowMore }) => {
+const ArticleCard = ({ title, description, image, price, onClickButton }) => {
   const styles = {
     imageContainer: {
       width: "100%",
@@ -60,8 +60,8 @@ const ArticleCard = ({ title, description, image, price, onShowMore }) => {
       </SimplifiedDiv>
       <SimplifiedDiv style={styles.buttonHolder}>
         <PrimaryButton
+          onClick={() => onClickButton({ image, price, title, qty: 1 })}
           primary
-          onClick={onShowMore}
           borderRadius="3px"
           padding="10px"
         >

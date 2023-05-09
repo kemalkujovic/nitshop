@@ -35,7 +35,7 @@ import BlogScreen from "./Screens/BlogScreen/BlogScreen";
 import AboutScreen from "./Screens/AboutScreen/AboutScreen";
 import ContactScreen from "./Screens/ContactScreen/ContactScreen";
 import CartScreen from "./Screens/CartScreen/CartScreen";
-
+import CartContextProvider, { CartContext } from "./context/CartContext";
 const App = () => {
   const router = createBrowserRouter([
     {
@@ -61,11 +61,13 @@ const App = () => {
     {
       path: "/cart",
       element: <CartScreen />,
-    }
+    },
   ]);
   return (
     <>
-      <RouterProvider router={router} />
+      <CartContextProvider>
+        <RouterProvider router={router} />
+      </CartContextProvider>
     </>
   );
 };
