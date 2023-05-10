@@ -6,7 +6,7 @@ import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
 // shop cart napraviti tacno
-const ArticleCard = ({ title, description, image, price, onClickButton }) => {
+const ArticleCard = ({ title, description, image, price,article, onClickButton }) => {
   const styles = {
     imageContainer: {
       width: "100%",
@@ -49,7 +49,7 @@ const ArticleCard = ({ title, description, image, price, onClickButton }) => {
           fontWeight={fontWeight.mediumBold}
           fontSize={fontSize.large}
         >
-          {price}
+          {price}$
         </Text>
         <Text fontSize={fontSize.medium}>{title}</Text>
         <Text color={colors.lightBlack} fontSize={fontSize.optimal}>
@@ -60,7 +60,7 @@ const ArticleCard = ({ title, description, image, price, onClickButton }) => {
       </SimplifiedDiv>
       <SimplifiedDiv style={styles.buttonHolder}>
         <PrimaryButton
-          onClick={() => onClickButton({ image, price, title, qty: 1 })}
+          onClick={() => onClickButton(article)}
           primary
           borderRadius="3px"
           padding="10px"

@@ -66,7 +66,6 @@ const ItemsProduct = () => {
       )
     );
   };
-
   const handleRemove = (itemId) => {
     setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
@@ -91,7 +90,7 @@ const ItemsProduct = () => {
                   fontSize: fontSize.optimal,
                 }}
               >
-                Web ID: 1089772
+                Web ID: {item.id}
               </span>
             </Text>
           </Grid>
