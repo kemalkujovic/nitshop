@@ -7,6 +7,7 @@ import article2 from "../../assets/images/home/product4.jpg";
 import article3 from "../../assets/images/home/product3.jpg";
 import { CartContext } from "../../context/CartContext";
 import { generateId } from "../../util/helper";
+import { UserContext } from "../../context/UserContext";
 const descriptionText =
   "Lorem Ipsum is simply dummy text of the printing and typesetting industry.text of the printing and typesettingtext of the printing and typesettingtext of the printing and typesettingtext of the printing and typesetting";
 
@@ -62,7 +63,8 @@ export const articles = [
 ];
 const ArticlesHomePage = () => {
   const { setItems, items } = useContext(CartContext);
-
+  const { setUser } = useContext(UserContext);
+  setUser({ name: "Kemal", lName: "Kujovic" });
   function addArticleHander(article) {
     let existingIndex = items.findIndex((item) => item.id === article.id);
     if (existingIndex >= 0) {
