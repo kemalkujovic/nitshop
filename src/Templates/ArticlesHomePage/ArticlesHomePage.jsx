@@ -66,7 +66,7 @@ const ArticlesHomePage = () => {
   function addArticleHander(article) {
     let existingIndex = items.findIndex((item) => item.id === article.id);
     if (existingIndex >= 0) {
-      setItems((previtems) =>
+      setItems((previtems) => 
         items.map((item) =>
           item.id === article.id ? { ...item, qty: item.qty + 1 } : item
         )
