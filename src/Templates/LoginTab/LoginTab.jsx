@@ -106,6 +106,7 @@ const LoginTab = () => {
             style={styles.inputStyle}
             type="password"
             placeholder="Password"
+            required
           />
           <PrimaryButton style={styles.buttonStyle}>Signup</PrimaryButton>
         </form>
