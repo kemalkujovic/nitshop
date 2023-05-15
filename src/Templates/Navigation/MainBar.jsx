@@ -54,7 +54,9 @@ const MainBar = () => {
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <LockIcon style={iconStyle} />
-        <Text style={iconStyle}>Login</Text>
+        <Link to="/login" style={iconStyle}>
+          Login
+        </Link>
       </CustomDiv>
     </CustomDiv>
   );

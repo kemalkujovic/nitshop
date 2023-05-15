@@ -64,7 +64,7 @@ export const articles = [
 const ArticlesHomePage = () => {
   const { setItems, items } = useContext(CartContext);
   const { setUser } = useContext(UserContext);
-  setUser({ name: "Kemal", lName: "Kujovic" });
+  // setUser({ name: "Kemal", lName: "Kujovic" });
   function addArticleHander(article) {
     let existingIndex = items.findIndex((item) => item.id === article.id);
     if (existingIndex >= 0) {

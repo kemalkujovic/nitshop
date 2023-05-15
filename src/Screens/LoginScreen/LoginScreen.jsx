@@ -1,16 +1,16 @@
 import React from "react";
 import Navigation from "../../Templates/Navigation/Navigation";
-import ItemsShop from "../../Templates/ItemsShop/ItemsShop";
+import LoginTab from "../../Templates/LoginTab/LoginTab";
 import Footer from "../../Templates/Footer/Footer";
-const CartScreen = () => {
-  
+
+const LoginScreen = () => {
   return (
     <>
-      <Navigation />;
-      <ItemsShop />
-      <Footer />;
+      <Navigation />
+      <LoginTab />
+      <Footer />
     </>
   );
 };
 
-export default CartScreen;
+export default LoginScreen;
