@@ -1,9 +1,5 @@
 import React from "react";
 import "./App.css";
-import Navigation from "./Templates/Navigation/Navigation";
-import Slider from "./Templates/Slider/Slider";
-import SimplifiedDiv from "./components/SimplifiedDiv/SimplifiedDiv";
-import ProductsHomePage from "./Templates/ProductsHomePage/ProductsHomePage";
 import "./assets/fonts/Lato-Black.ttf";
 import "./assets/fonts/Lato-BlackItalic.ttf";
 import "./assets/fonts/Lato-Bold.ttf";
@@ -30,12 +26,11 @@ import "./assets/fonts/Montserrat-Regular.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePageScreen from "./Screens/HomePageScreen/HomePageScreen";
 import ShopScreen from "./Screens/ShopScreen/ShopScreen";
-import BlogScreenf from "./Screens/BlogScreen/BlogScreen";
 import BlogScreen from "./Screens/BlogScreen/BlogScreen";
 import AboutScreen from "./Screens/AboutScreen/AboutScreen";
 import ContactScreen from "./Screens/ContactScreen/ContactScreen";
 import CartScreen from "./Screens/CartScreen/CartScreen";
-import CartContextProvider, { CartContext } from "./context/CartContext";
+import CartContextProvider from "./context/CartContext";
 import UserContextProvider from "./context/UserContext";
 import LoginScreen from "./Screens/LoginScreen/LoginScreen";
 const App = () => {

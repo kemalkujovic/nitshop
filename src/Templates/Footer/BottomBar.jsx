@@ -24,7 +24,7 @@ const BottomBar = () => {
       <Text style={styles.innerText}>
         Copyright © 2023 CENTAR NIT. All rights reserved.
       </Text>
-      <Text style={styles.innerText}>Made by NIT EKIPA</Text>
+      <Text style={styles.innerText}>Made by Kemal K.</Text>
     </SimplifiedDiv>
   );
 };

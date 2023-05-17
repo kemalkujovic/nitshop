@@ -5,6 +5,7 @@ import Text from "../../components/Text/Text";
 import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 import { colors, fontSize } from "../../util/theme";
 import { UserContext } from "../../context/UserContext";
+import { SystemSecurityUpdateWarningSharp } from "@mui/icons-material";
 
 const LoginTab = () => {
   const styles = {
@@ -43,51 +44,62 @@ const LoginTab = () => {
       backgroundColor: colors.accentColor,
       borderRadius: "50%",
       color: colors.white,
-      width: "100px",
-      height: "100px",
-      marginTop: "30px",
-      marginLeft: "60px",
+      width: "70px",
+      height: "70px",
+      margin: "auto",
     },
     formStyle: {
       display: "flex",
       flexDirection: "column",
     },
   };
-  const { setUser } = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
 
   const submitHandler = (e) => {
     e.preventDefault();
     setUser({
       name: e.target[0].value,
       email: e.target[1].value,
+      password: e.target[2].value,
     });
   };
+
+  const loginHandler = (e) => {
+    e.preventDefault();
+
+    if (user.email !== e.target[0].value) return;
+    if (user.password !== e.target[1].value) return;
+
+    console.log("login!!!");
+  };
   return (
-    <Grid lg={12} style={styles.mainDiv} container item>
-      <Grid lg={5} display="flex" flexDirection="column">
+    <Grid lg={12} md={12} style={styles.mainDiv} container item>
+      <Grid lg={5} md={5} display="flex" flexDirection="column">
         <Text style={styles.textStyle}>Login to your acoount</Text>
-        <input
-          style={styles.inputStyle}
-          type="text"
-          placeholder="Name"
-          required
-        />
-        <input
-          style={styles.inputStyle}
-          type="email"
-          placeholder="Email Address"
-          required
-        />
-        <SimplifiedDiv style={styles.checkboxWrapper}>
-          <input type="checkbox" />
-          <Text>Keep me signed in</Text>
-        </SimplifiedDiv>
-        <PrimaryButton style={styles.buttonStyle}>Login</PrimaryButton>
+        <form style={styles.formStyle} onSubmit={loginHandler}>
+          <input
+            style={styles.inputStyle}
+            type="email"
+            placeholder="E-mail"
+            required
+          />
+          <input
+            style={styles.inputStyle}
+            type="password"
+            placeholder="Password"
+            required
+          />
+          <SimplifiedDiv style={styles.checkboxWrapper}>
+            <input type="checkbox" />
+            <Text>Keep me signed in</Text>
+          </SimplifiedDiv>
+          <PrimaryButton style={styles.buttonStyle}>Login</PrimaryButton>
+        </form>
       </Grid>
-      <Grid lg={2} display="flex">
+      <Grid md={2} lg={2} display="flex">
         <div style={styles.roundDiv}>OR</div>
       </Grid>
-      <Grid lg={5} display="flex" flexDirection="column">
+      <Grid md={5} lg={5} display="flex" flexDirection="column">
         <Text style={styles.textStyle}>New User Signup!</Text>
         <form onSubmit={submitHandler} style={styles.formStyle}>
           <input
