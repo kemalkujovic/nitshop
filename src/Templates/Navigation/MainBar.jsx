@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Grid } from "@mui/material";
 import CustomDiv from "../../components/CustomDiv/CustomDiv";
 import { colors, fontSize, fontFamily } from "../../util/theme";
@@ -12,6 +12,7 @@ import LockIcon from "@mui/icons-material/Lock";
 import { getScreenWidth } from "../../util/helper";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { Link } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 const iconStyle = {
   fontFamily: fontFamily.LatoRegular,
   fontSize: fontSize.normal,
@@ -24,7 +25,8 @@ const MainBar = () => {
   const rightMenuMargin = screenWidth === "SM" ? "20px 5px" : "0px";
   const rightMenuJustify = screenWidth === "SM" ? "flex-start" : "flex-end";
   const rightmenuItemsMargin = screenWidth === "SM" ? "0px 5px" : "0px 10px";
-
+  const { user } = useContext(UserContext);
+  console.log(user.length > 0);
   const RightMenu = () => (
     <CustomDiv
       display="flex"
@@ -36,7 +38,7 @@ const MainBar = () => {
     >
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <PersonIcon style={iconStyle} />
-        <Text style={iconStyle}>Account</Text>
+        <Text style={iconStyle}>{user.length > 0 ? user.name : "Account"}</Text>
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <StarIcon style={iconStyle} />

@@ -1,11 +1,12 @@
 import { Grid } from "@mui/material";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import Text from "../../components/Text/Text";
 import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 import { colors, fontSize } from "../../util/theme";
 import { UserContext } from "../../context/UserContext";
-import { SystemSecurityUpdateWarningSharp } from "@mui/icons-material";
+import { useEffect } from "react";
+import { fetchAllUsers } from "../../api/userApi";
 
 const LoginTab = () => {
   const styles = {
@@ -53,7 +54,13 @@ const LoginTab = () => {
       flexDirection: "column",
     },
   };
+  const [users, setUsers] = useState([]);
+
   const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    fetchAllUsers().then((allUsers) => setUsers(allUsers));
+  }, []);
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -63,15 +70,23 @@ const LoginTab = () => {
       password: e.target[2].value,
     });
   };
-
+  console.log(users);
   const loginHandler = (e) => {
     e.preventDefault();
+    console.log(users);
+    users.filter((user) => {
+      if (user.email !== e.target[0].value) return;
+      if (user.name !== e.target[1].value) return;
+      console.log(user.name, user.email);
 
-    if (user.email !== e.target[0].value) return;
-    if (user.password !== e.target[1].value) return;
+      setUser({ name: user.name, email: user.email });
+    });
+    // console.log(user);
+    // if (user.email !== e.target[0].value){} return;
 
     console.log("login!!!");
   };
+  console.log(user)
   return (
     <Grid lg={12} md={12} style={styles.mainDiv} container item>
       <Grid lg={5} md={5} display="flex" flexDirection="column">
@@ -80,13 +95,13 @@ const LoginTab = () => {
           <input
             style={styles.inputStyle}
             type="email"
-            placeholder="E-mail"
+            placeholder="name"
             required
           />
           <input
             style={styles.inputStyle}
-            type="password"
-            placeholder="Password"
+            type="name"
+            placeholder="Email"
             required
           />
           <SimplifiedDiv style={styles.checkboxWrapper}>
