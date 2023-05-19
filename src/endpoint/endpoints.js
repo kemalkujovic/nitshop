@@ -1,5 +1,5 @@
 export const userEndpoint = {
-  fetchAll: "...",
+  fetchAll: "https://jsonplaceholder.typicode.com/users",
 };
 
 /*
