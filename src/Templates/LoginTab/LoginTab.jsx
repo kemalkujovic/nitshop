@@ -81,12 +81,11 @@ const LoginTab = () => {
 
       setUser({ name: user.name, email: user.email });
     });
-    // console.log(user);
-    // if (user.email !== e.target[0].value){} return;
+    console.log(user);
 
     console.log("login!!!");
   };
-  console.log(user)
+  console.log(user);
   return (
     <Grid lg={12} md={12} style={styles.mainDiv} container item>
       <Grid lg={5} md={5} display="flex" flexDirection="column">
@@ -95,13 +94,13 @@ const LoginTab = () => {
           <input
             style={styles.inputStyle}
             type="email"
-            placeholder="name"
+            placeholder="Email"
             required
           />
           <input
             style={styles.inputStyle}
             type="name"
-            placeholder="Email"
+            placeholder="Name"
             required
           />
           <SimplifiedDiv style={styles.checkboxWrapper}>
