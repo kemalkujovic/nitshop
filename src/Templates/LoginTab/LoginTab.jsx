@@ -73,7 +73,6 @@ const LoginTab = () => {
   console.log(users);
   const loginHandler = (e) => {
     e.preventDefault();
-    console.log(users);
     users.filter((user) => {
       if (user.email !== e.target[0].value) return;
       if (user.name !== e.target[1].value) return;
@@ -81,14 +80,10 @@ const LoginTab = () => {
 
       setUser({ name: user.name, email: user.email });
     });
-    console.log(user);
-
-    console.log("login!!!");
   };
-  console.log(user);
   return (
     <Grid lg={12} md={12} style={styles.mainDiv} container item>
-      <Grid lg={5} md={5} display="flex" flexDirection="column">
+      <Grid lg={5} md={5} sm={12} display="flex" flexDirection="column">
         <Text style={styles.textStyle}>Login to your acoount</Text>
         <form style={styles.formStyle} onSubmit={loginHandler}>
           <input
@@ -110,10 +105,10 @@ const LoginTab = () => {
           <PrimaryButton style={styles.buttonStyle}>Login</PrimaryButton>
         </form>
       </Grid>
-      <Grid md={2} lg={2} display="flex">
+      <Grid md={2} lg={2} sm={12} display="flex">
         <div style={styles.roundDiv}>OR</div>
       </Grid>
-      <Grid md={5} lg={5} display="flex" flexDirection="column">
+      <Grid md={5} lg={5} sm={12} display="flex" flexDirection="column">
         <Text style={styles.textStyle}>New User Signup!</Text>
         <form onSubmit={submitHandler} style={styles.formStyle}>
           <input

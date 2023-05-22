@@ -5,3 +5,8 @@ export async function fetchAllUsers() {
 
   return res.json();
 }
+export async function fetchAllArticle() {
+  const res = await fetch(userEndpoint.fetchArticle);
+
+  return res.json();
+}

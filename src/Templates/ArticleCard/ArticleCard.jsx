@@ -6,7 +6,14 @@ import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
 // shop cart napraviti tacno
-const ArticleCard = ({ title, description, image, price,article, onClickButton }) => {
+const ArticleCard = ({
+  title,
+  description,
+  image,
+  price,
+  article,
+  onClickButton,
+}) => {
   const styles = {
     imageContainer: {
       width: "100%",
@@ -53,7 +60,7 @@ const ArticleCard = ({ title, description, image, price,article, onClickButton }
         </Text>
         <Text fontSize={fontSize.medium}>{title}</Text>
         <Text color={colors.lightBlack} fontSize={fontSize.optimal}>
-          {description.length > 70
+          {description?.length > 70
             ? description.slice(0, 70) + "..."
             : description}
         </Text>
