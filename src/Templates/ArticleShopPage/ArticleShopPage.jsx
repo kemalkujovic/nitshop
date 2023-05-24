@@ -20,16 +20,11 @@ const ArticleShopPage = () => {
           const randomNum = Math.floor(Math.random() * 3);
           return (
             <Grid item lg={4} md={4}>
-              {/* {images.map((e) => {
-
-                console.log(e[randomNum]); */}
               <ArticleCard
                 title={el.title}
                 image={images[randomNum]}
                 price="56"
               />
-              {/* ); */}
-              {/* })} */}
             </Grid>
           );
         })}
