@@ -10,9 +10,9 @@ const ArticleShopPage = () => {
   const [articles, setArticles] = useState([]);
   const images = [article1, article2, article3];
 
-  useEffect(() => {
-    fetchAllArticle().then((allUsers) => setArticles(allUsers));
-  }, []);
+  // useEffect(() => {
+  //   fetchAllArticle().then((allUsers) => setArticles(allUsers));
+  // }, []);
   return (
     <SimplifiedDiv style={{}}>
       <Grid container item direction="row" spacing={3}>
@@ -21,6 +21,7 @@ const ArticleShopPage = () => {
           return (
             <Grid item lg={4} md={4}>
               <ArticleCard
+                key={el.title}
                 title={el.title}
                 image={images[randomNum]}
                 price="56"

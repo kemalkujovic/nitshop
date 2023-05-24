@@ -111,7 +111,9 @@ const CategoryTab = () => {
               {cat.subCategory && isOpen.includes(index) && (
                 <SimplifiedDiv style={styles.subCategoryContainer}>
                   {cat.subCategory.map((sub) => (
-                    <Text style={styles.subCategoryText}>{sub}</Text>
+                    <Text key={sub} style={styles.subCategoryText}>
+                      {sub}
+                    </Text>
                   ))}
                 </SimplifiedDiv>
               )}

@@ -7,7 +7,6 @@ const BlogScreen = () => {
   const [open, setOpen] = useState(false);
   const [comments, setComments] = useState([]);
   const [displayComment, setDisplayComment] = useState(false);
-  let filterComments = [];
   useEffect(() => {
     fetchAllComments().then((allComments) => setComments(allComments));
   }, []);
@@ -29,36 +28,13 @@ const BlogScreen = () => {
         <button onClick={handleOpen}>Dropdown</button>
         {open ? (
           <ul>
-            <li>
-              <button onClick={(e) => showComments(e)}>1</button>
-            </li>
-            <li>
-              <button onClick={(e) => showComments(e)}>2</button>
-            </li>
-            <li>
-              <button onClick={(e) => showComments(e)}>3</button>
-            </li>
-            <li>
-              <button onClick={(e) => showComments(e)}>4</button>
-            </li>
-            <li>
-              <button onClick={(e) => showComments(e)}>5</button>
-            </li>
-            <li>
-              <button onClick={(e) => showComments(e)}>6</button>
-            </li>
-            <li>
-              <button onClick={(e) => showComments(e)}>7</button>
-            </li>
-            <li>
-              <button onClick={(e) => showComments(e)}>8</button>
-            </li>
-            <li>
-              <button onClick={(e) => showComments(e)}>9</button>
-            </li>
-            <li>
-              <button onClick={(e) => showComments(e)}>10</button>
-            </li>
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((id) => {
+              return (
+                <li>
+                  <button onClick={showComments}>{id}</button>
+                </li>
+              );
+            })}
           </ul>
         ) : null}
       </SimplifiedDiv>
