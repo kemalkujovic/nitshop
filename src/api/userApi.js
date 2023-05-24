@@ -10,3 +10,9 @@ export async function fetchAllArticle() {
 
   return res.json();
 }
+
+export async function fetchAllComments() {
+  const res = await fetch(userEndpoint.fetchComments);
+
+  return res.json();
+}
