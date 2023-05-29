@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import Navigation from "../../Templates/Navigation/Navigation";
 
 const ContactScreen = () => {
-  return (
-    <div>ContactScreen</div>
-  )
-}
+  return <Navigation />;
+};
 
-export default ContactScreen
+export default ContactScreen;

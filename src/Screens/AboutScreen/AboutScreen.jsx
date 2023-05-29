@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import Navigation from "../../Templates/Navigation/Navigation";
 
 const AboutScreen = () => {
-  return (
-    <div>AboutScreen</div>
-  )
-}
+  return <Navigation />;
+};
 
-export default AboutScreen
+export default AboutScreen;

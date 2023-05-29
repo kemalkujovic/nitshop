@@ -14,6 +14,7 @@ const BlogScreen = () => {
   const handleOpen = () => {
     setOpen(!open);
   };
+
   const showComments = (e) => {
     setDisplayComment(
       comments.filter((comment) => {
