@@ -16,3 +16,8 @@ export async function fetchAllComments() {
 
   return res.json();
 }
+export async function fetchProducts() {
+  const res = await fetch(userEndpoint.fetchProducts);
+
+  return res.json();
+}

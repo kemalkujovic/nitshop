@@ -1,7 +1,7 @@
 export const userEndpoint = {
   fetchAll: "https://jsonplaceholder.typicode.com/users",
   fetchArticle: "https://jsonplaceholder.typicode.com/posts",
-  fetchComments: "https://jsonplaceholder.typicode.com/comments",
+  fetchProducts: "https://dummyjson.com/products",
 };
 
 /*
