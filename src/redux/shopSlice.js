@@ -17,9 +17,20 @@ export const shopSlice = createSlice({
         return el.filter((el) => el.id !== payload.payload);
       });
     },
+    increment: (state, payload) => {
+      state.value = state.value?.map((el) => {
+        return el.id === payload.payload ? { ...el, qty: el.qty + 1 } : el;
+      });
+    },
+    decrement: (state, payload) => {
+      state.value = state.value?.map((el) => {
+        return el.id === payload.payload ? { ...el, qty: el.qty - 1 } : el;
+      });
+    },
   },
 });
 
-export const { addToCart, removeToCart } = shopSlice.actions;
+export const { addToCart, removeToCart, increment, decrement } =
+  shopSlice.actions;
 
 export default shopSlice.reducer;

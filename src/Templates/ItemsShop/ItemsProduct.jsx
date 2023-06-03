@@ -5,7 +5,7 @@ import { Grid } from "@mui/material";
 import Text from "../../components/Text/Text";
 import { CartContext } from "../../context/CartContext";
 import { useDispatch, useSelector } from "react-redux";
-import { removeToCart } from "../../redux/shopSlice";
+import { decrement, increment, removeToCart } from "../../redux/shopSlice";
 const ItemsProduct = () => {
   const dispatch = useDispatch();
   const select = useSelector((state) => state.shop.value);
@@ -60,6 +60,7 @@ const ItemsProduct = () => {
         item.id === itemId ? { ...item, qty: item.qty + 1 } : item
       )
     );
+    dispatch(increment(itemId));
   };
 
   const handleDecrement = (itemId) => {
@@ -70,6 +71,7 @@ const ItemsProduct = () => {
           : item
       )
     );
+    dispatch(decrement(itemId));
   };
   const handleRemove = (itemId) => {
     dispatch(removeToCart(itemId));
