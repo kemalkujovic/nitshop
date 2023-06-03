@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { Grid } from "@mui/material";
@@ -9,6 +9,7 @@ import { removeToCart } from "../../redux/shopSlice";
 const ItemsProduct = () => {
   const dispatch = useDispatch();
   const select = useSelector((state) => state.shop.value);
+  console.log("sadaaaaa", select);
   const styles = {
     div: {
       width: "100%",
@@ -74,6 +75,7 @@ const ItemsProduct = () => {
     dispatch(removeToCart(itemId));
     // setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
+
   return (
     <SimplifiedDiv style={styles.div}>
       <Grid container direction="row" style={styles.grid}>
@@ -82,59 +84,66 @@ const ItemsProduct = () => {
         <Grid lg={2}>Quantity</Grid>
         <Grid lg={2}>Total</Grid>
       </Grid>
-      {select?.map((item) => (
-        <Grid key={item.id} container direction="row" style={styles.gridWhite}>
-          <Grid lg={2}>
-            <img src={item.image} alt={item.name} style={{ width: "80px" }} />
-          </Grid>
-          <Grid lg={4}>
-            <Text style={styles.textStyle}>
-              ColorBlock Scuba <br />
-              <span
-                style={{
-                  fontSize: fontSize.optimal,
-                }}
-              >
-                Web ID: {item.id}
-              </span>
-            </Text>
-          </Grid>
-          <Grid lg={2}>
-            <Text style={styles.textStyle}>{item.price + "$"}</Text>
-          </Grid>
-          <Grid ite lg={2}>
-            <button
-              style={styles.buttonStyle}
-              onClick={() => handleDecrement(item.id)}
-            >
-              -
-            </button>
-            <input
-              type="number"
-              value={item.qty}
-              style={styles.inputStyle}
-              onChange={() => {}}
-            />
-            <button
-              style={styles.buttonStyle}
-              onClick={() => handleIncrement(item.id)}
-            >
-              +
-            </button>
-          </Grid>
-          <Grid lg={2}>
-            <Text style={styles.textStyle}>
-              {(item.price * item.qty).toFixed(2) + "$"}
+      {select?.map((item) =>
+        item.map((item) => (
+          <Grid
+            key={item.id}
+            container
+            direction="row"
+            style={styles.gridWhite}
+          >
+            <Grid lg={2}>
+              <img src={item.image} alt={item.name} style={{ width: "80px" }} />
+            </Grid>
+            <Grid lg={4}>
+              <Text style={styles.textStyle}>
+                ColorBlock Scuba <br />
+                <span
+                  style={{
+                    fontSize: fontSize.optimal,
+                  }}
+                >
+                  Web ID: {item.id}
+                </span>
+              </Text>
+            </Grid>
+            <Grid lg={2}>
+              <Text style={styles.textStyle}>{item.price + "$"}</Text>
+            </Grid>
+            <Grid ite lg={2}>
               <button
                 style={styles.buttonStyle}
-                onClick={() => handleRemove(item.id)}
+                onClick={() => handleDecrement(item.id)}
               >
-                X
+                -
               </button>
-            </Text>
+              <input
+                type="number"
+                value={item.qty}
+                style={styles.inputStyle}
+                onChange={() => {}}
+              />
+              <button
+                style={styles.buttonStyle}
+                onClick={() => handleIncrement(item.id)}
+              >
+                +
+              </button>
+            </Grid>
+            <Grid lg={2}>
+              <Text style={styles.textStyle}>
+                {(item.price * item.qty).toFixed(2) + "$"}
+                <button
+                  style={styles.buttonStyle}
+                  onClick={() => handleRemove(item.id)}
+                >
+                  X
+                </button>
+              </Text>
+            </Grid>
           </Grid>
-        </Grid>
-      ))}
+        ))
+      )}
     </SimplifiedDiv>
   );
 };

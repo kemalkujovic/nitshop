@@ -66,25 +66,23 @@ export const articles = [
 const ArticlesHomePage = () => {
   const dispatch = useDispatch();
   const select = useSelector((state) => state.shop.value);
-
   console.log(select);
   const { setItems, items } = useContext(CartContext);
   const { setUser } = useContext(UserContext);
   // setUser({ name: "Kemal", lName: "Kujovic" });
   function addArticleHander(article) {
-    // let existingIndex = items.findIndex((item) => item.id === article.id);
-    // if (existingIndex >= 0) {
-    //   setItems((previtems) =>
-    //     items.map((item) =>
-    //       item.id === article.id ? { ...item, qty: item.qty + 1 } : item
-    //     )
-    //   );
-    // } else {
-    //   setItems((prev) => [...prev, article]);
-    // }
+    let existingIndex = items.findIndex((item) => item.id === article.id);
+    if (existingIndex >= 0) {
+      setItems((previtems) =>
+        items.map((item) =>
+          item.id === article.id ? { ...item, qty: item.qty + 1 } : item
+        )
+      );
+    } else {
+      setItems((prev) => [...prev, article]);
+    }
     dispatch(addToCart([article]));
   }
-
   return (
     <SimplifiedDiv style={{}}>
       <Grid container item direction="row" spacing={3}>

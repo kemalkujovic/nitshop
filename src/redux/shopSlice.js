@@ -6,10 +6,17 @@ export const shopSlice = createSlice({
     value: [],
   },
   reducers: {
-    addToCart: (state, payload) => {
+    addToCart: (state, { payload }) => {
       state.value.push(payload);
+      console.log(state.value);
     },
-    removeToCart: (state, payload) => {},
+
+    removeToCart: (state, payload) => {
+      console.log(payload.payload);
+      state.value = state.value?.map((el) => {
+        return el.filter((el) => el.id !== payload.payload);
+      });
+    },
   },
 });
 
