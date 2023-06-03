@@ -4,7 +4,11 @@ import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { Grid } from "@mui/material";
 import Text from "../../components/Text/Text";
 import { CartContext } from "../../context/CartContext";
+import { useDispatch, useSelector } from "react-redux";
+import { removeToCart } from "../../redux/shopSlice";
 const ItemsProduct = () => {
+  const dispatch = useDispatch();
+  const select = useSelector((state) => state.shop.value);
   const styles = {
     div: {
       width: "100%",
@@ -67,7 +71,8 @@ const ItemsProduct = () => {
     );
   };
   const handleRemove = (itemId) => {
-    setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
+    dispatch(removeToCart(itemId));
+    // setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
   return (
     <SimplifiedDiv style={styles.div}>
@@ -77,7 +82,7 @@ const ItemsProduct = () => {
         <Grid lg={2}>Quantity</Grid>
         <Grid lg={2}>Total</Grid>
       </Grid>
-      {items?.map((item) => (
+      {select?.map((item) => (
         <Grid key={item.id} container direction="row" style={styles.gridWhite}>
           <Grid lg={2}>
             <img src={item.image} alt={item.name} style={{ width: "80px" }} />
