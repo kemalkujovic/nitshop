@@ -5,27 +5,32 @@ export const shopSlice = createSlice({
   initialState: {
     value: [],
   },
-  reducers: {
-    addToCart: (state, { payload }) => {
-      state.value.push(payload);
-      console.log(state.value);
-    },
 
-    removeToCart: (state, payload) => {
-      console.log(payload.payload);
-      state.value = state.value?.map((el) => {
-        return el.filter((el) => el.id !== payload.payload);
+  reducers: {
+    addToCart: (state, payload) => {
+      let id;
+      const fast = payload.payload.forEach((element) => {
+        id = element.id;
       });
+      const existingProduct = state.value.find((product) => product.id === id);
+      if (existingProduct) {
+        existingProduct.qty += 1;
+      } else {
+        state.value = [...state.value, ...payload.payload];
+      }
+    },
+    removeToCart: (state, payload) => {
+      state.value = state.value.filter((el) => el.id !== payload.payload);
     },
     increment: (state, payload) => {
-      state.value = state.value?.map((el) => {
-        return el.id === payload.payload ? { ...el, qty: el.qty + 1 } : el;
-      });
+      state.value = state.value.map((el) =>
+        el.id === payload.payload ? { ...el, qty: el.qty + 1 } : el
+      );
     },
     decrement: (state, payload) => {
-      state.value = state.value?.map((el) => {
-        return el.id === payload.payload ? { ...el, qty: el.qty - 1 } : el;
-      });
+      state.value = state.value.map((el) =>
+        el.id === payload.payload ? { ...el, qty: el.qty - 1 } : el
+      );
     },
   },
 });
