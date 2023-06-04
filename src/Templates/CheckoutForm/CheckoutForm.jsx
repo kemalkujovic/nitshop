@@ -4,6 +4,7 @@ import { Grid } from "@mui/material";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import Text from "../../components/Text/Text";
 import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
+import HeaderCheckoutForm from "./HeaderCheckoutForm";
 
 export const CheckoutForm = () => {
   const styles = {
@@ -14,6 +15,7 @@ export const CheckoutForm = () => {
       display: "flex",
       flexDirection: "column",
       padding: "0px 10px",
+      marginTop: "50px",
     },
     button: {
       padding: "7px 25px",
@@ -54,6 +56,7 @@ export const CheckoutForm = () => {
   return (
     <SimplifiedDiv style={styles.container}>
       <Grid md={12} lg={12} container>
+        <HeaderCheckoutForm />
         <Grid xs={12} sm={12} md={3} lg={3}>
           <SimplifiedDiv style={styles.formWrapper}>
             <Text style={styles.textStyle}>Shopper Information</Text>
