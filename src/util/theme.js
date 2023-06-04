@@ -10,6 +10,7 @@ export const colors = {
   red: "red",
   white: "white",
   dirtyWhite: "#fafdff",
+  dirtyGray: "rgb(240, 240, 233)",
 };
 export const fontWeight = {
   light: "100",

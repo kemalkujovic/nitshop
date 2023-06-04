@@ -37,15 +37,21 @@ const MainBar = () => {
     >
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <PersonIcon style={iconStyle} />
-        <Text style={iconStyle}>{user?.name ? user.name : "Account"}</Text>
+        <Link to="/checkout" style={iconStyle}>
+          {user?.name ? user.name : "Account"}
+        </Link>
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <StarIcon style={iconStyle} />
-        <Text style={iconStyle}>Wishlist</Text>
+        <Link to="/checkout" style={iconStyle}>
+          Wishlist
+        </Link>
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <LocationSearchingIcon style={iconStyle} />
-        <Text style={iconStyle}>Checkout</Text>
+        <Link to="/checkout" style={iconStyle}>
+          Checkout
+        </Link>
       </CustomDiv>
       <CustomDiv display="flex" margin={rightmenuItemsMargin}>
         <ShoppingCartIcon style={iconStyle} />
