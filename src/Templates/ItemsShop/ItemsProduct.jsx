@@ -46,7 +46,7 @@ const ItemsProduct = () => {
       cursor: "pointer",
     },
     inputStyle: {
-      width: "23px",
+      width: "31px",
       padding: "7px",
     },
   };

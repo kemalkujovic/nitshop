@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { Grid } from "@mui/material";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import Text from "../../components/Text/Text";
 import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 import HeaderCheckoutForm from "./HeaderCheckoutForm";
+import { UserContext } from "../../context/UserContext";
 
 export const CheckoutForm = () => {
+  const { user, setUser } = useContext(UserContext);
+  console.log("sad", user);
   const styles = {
     container: {
       padding: "2% 10%",
@@ -64,11 +67,13 @@ export const CheckoutForm = () => {
               style={styles.inputStyle}
               type="text"
               placeholder="Display Name"
+              value={user.name}
             />
             <input
               style={styles.inputStyle}
               type="text"
               placeholder="User Name"
+              value={user.username}
             />
             <input
               style={styles.inputStyle}
@@ -93,12 +98,14 @@ export const CheckoutForm = () => {
               style={styles.inputStyle}
               type="text"
               placeholder="Company Name"
+              value={user.company?.name}
             />
             <input
               style={styles.inputStyle}
               type="email"
               placeholder="Email*"
               required
+              value={user.email}
             />
             <input style={styles.inputStyle} type="text" placeholder="Title" />
             <input
@@ -123,6 +130,7 @@ export const CheckoutForm = () => {
               type="text"
               placeholder="Address 1*"
               required
+              value={user.address?.street}
             />
             <input
               style={styles.inputStyle}
@@ -136,9 +144,10 @@ export const CheckoutForm = () => {
             <Text style={styles.textStyle}>Bill To</Text>
             <input
               style={styles.inputStyle}
-              type="number"
+              type="text"
               placeholder="Zip / Postal Code*"
               required
+              value={user.address?.zipcode}
             />
             <select style={styles.inputStyle}>
               <option>-- Country --</option>
@@ -159,9 +168,10 @@ export const CheckoutForm = () => {
             />
             <input
               style={styles.inputStyle}
-              type="number"
+              type="text"
               placeholder="Phone*"
               required
+              value={user.phone}
             />
             <input
               style={styles.inputStyle}

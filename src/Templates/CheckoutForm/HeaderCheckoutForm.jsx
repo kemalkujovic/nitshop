@@ -2,7 +2,6 @@ import { Grid } from "@mui/material";
 import React from "react";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import Text from "../../components/Text/Text";
-import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 import { colors, fontSize } from "../../util/theme";
 import CancelIcon from "@mui/icons-material/Cancel";
 const HeaderCheckoutForm = () => {

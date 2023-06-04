@@ -61,7 +61,8 @@ const LoginTab = () => {
   useEffect(() => {
     fetchAllUsers().then((allUsers) => setUsers(allUsers));
   }, []);
-
+  console.log(users);
+  console.log(user);
   const submitHandler = (e) => {
     e.preventDefault();
     setUser({
@@ -70,7 +71,6 @@ const LoginTab = () => {
       password: e.target[2].value,
     });
   };
-  console.log(users);
   const loginHandler = (e) => {
     e.preventDefault();
     users.filter((user) => {
@@ -78,9 +78,10 @@ const LoginTab = () => {
       if (user.name !== e.target[1].value) return;
       console.log(user.name, user.email);
 
-      setUser({ name: user.name, email: user.email });
+      setUser(user);
     });
   };
+
   return (
     <Grid lg={12} md={12} style={styles.mainDiv} container item>
       <Grid lg={5} md={5} sm={12} display="flex" flexDirection="column">
