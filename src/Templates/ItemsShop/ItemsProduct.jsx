@@ -110,6 +110,7 @@ const ItemsProduct = () => {
             <button
               style={styles.buttonStyle}
               onClick={() => handleDecrement(item.id)}
+              disabled={item.qty === 1}
             >
               -
             </button>
@@ -122,6 +123,7 @@ const ItemsProduct = () => {
             <button
               style={styles.buttonStyle}
               onClick={() => handleIncrement(item.id)}
+              disabled={item.qty === 10}
             >
               +
             </button>
