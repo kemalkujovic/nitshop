@@ -1,13 +1,11 @@
-import React, { useContext } from "react";
+import React from "react";
 import ArticleCard from "../ArticleCard/ArticleCard";
 import { Grid } from "@mui/material";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import article1 from "../../assets/images/home/product1.jpg";
 import article2 from "../../assets/images/home/product4.jpg";
 import article3 from "../../assets/images/home/product3.jpg";
-import { CartContext } from "../../context/CartContext";
 import { generateId } from "../../util/helper";
-import { UserContext } from "../../context/UserContext";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../redux/shopSlice";
 const descriptionText =
@@ -66,21 +64,7 @@ export const articles = [
 const ArticlesHomePage = () => {
   const dispatch = useDispatch();
   const select = useSelector((state) => state.shop.value);
-  console.log(select);
-  const { setItems, items } = useContext(CartContext);
-  const { setUser } = useContext(UserContext);
-  // setUser({ name: "Kemal", lName: "Kujovic" });
   function addArticleHander(article) {
-    let existingIndex = items.findIndex((item) => item.id === article.id);
-    if (existingIndex >= 0) {
-      setItems((previtems) =>
-        items.map((item) =>
-          item.id === article.id ? { ...item, qty: item.qty + 1 } : item
-        )
-      );
-    } else {
-      setItems((prev) => [...prev, article]);
-    }
     dispatch(addToCart([article]));
   }
   return (

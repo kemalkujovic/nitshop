@@ -1,9 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { Grid } from "@mui/material";
 import Text from "../../components/Text/Text";
-import { CartContext } from "../../context/CartContext";
 import { useDispatch, useSelector } from "react-redux";
 import { decrement, increment, removeToCart } from "../../redux/shopSlice";
 const ItemsProduct = () => {
@@ -52,30 +51,15 @@ const ItemsProduct = () => {
     },
   };
 
-  const { items, setItems } = useContext(CartContext);
-
   const handleIncrement = (itemId) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === itemId ? { ...item, qty: item.qty + 1 } : item
-      )
-    );
     dispatch(increment(itemId));
   };
 
   const handleDecrement = (itemId) => {
-    setItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === itemId && item.qty > 1
-          ? { ...item, qty: item.qty - 1 }
-          : item
-      )
-    );
     dispatch(decrement(itemId));
   };
   const handleRemove = (itemId) => {
     dispatch(removeToCart(itemId));
-    // setItems((prevItems) => prevItems.filter((item) => item.id !== itemId));
   };
 
   return (
