@@ -3,7 +3,8 @@ import Text from "../../components/Text/Text";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import { Grid } from "@mui/material";
-
+import ScrollToTop from "react-scroll-to-top";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
 const FooterLinkBar = () => {
   const styles = {
     mainHolder: {
@@ -27,6 +28,10 @@ const FooterLinkBar = () => {
     innerBoxText: {
       fontSize: fontSize.optimal,
       color: colors.gray,
+    },
+    scrollIcon: {
+      backgroundColor: colors.accentColor,
+      color: colors.white,
     },
   };
 
@@ -72,7 +77,12 @@ const FooterLinkBar = () => {
 
   return (
     <SimplifiedDiv style={styles.mainHolder}>
-      <Grid container direction='row'>
+      <ScrollToTop
+        smooth
+        style={styles.scrollIcon}
+        component={<ArrowUpwardIcon />}
+      />
+      <Grid container direction="row">
         <Grid item md={2} lg={2}>
           <SimplifiedDiv style={styles.boxHolder}>
             <Text style={styles.headingText}>Service</Text>
