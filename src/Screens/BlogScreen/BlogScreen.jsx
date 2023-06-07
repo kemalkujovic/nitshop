@@ -1,45 +1,45 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navigation from "../../Templates/Navigation/Navigation";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
-import { fetchAllComments } from "../../api/userApi";
-
+import product1 from "../../assets/images/blog/blog-one.jpg";
+import product2 from "../../assets/images/blog/blog-two.jpg";
+import product3 from "../../assets/images/blog/blog-three.jpg";
+import BlogCard from "../../Templates/BlogCard/BlogCard";
+import CategoryTab from "../../Templates/CategoryTab/CategoryTab";
+import { Grid } from "@mui/material";
+import Footer from "../../Templates/Footer/Footer";
+import Text from "../../components/Text/Text";
+import { colors, fontSize, fontWeight } from "../../util/theme";
 const BlogScreen = () => {
-  const [open, setOpen] = useState(false);
-  const [comments, setComments] = useState([]);
-  const [displayComment, setDisplayComment] = useState(false);
-  useEffect(() => {
-    fetchAllComments().then((allComments) => setComments(allComments));
-  }, []);
-
-  const handleOpen = () => {
-    setOpen(!open);
-  };
-
-  const showComments = (e) => {
-    setDisplayComment(
-      comments.filter((comment) => {
-        return comment.postId === +e.target.innerText;
-      })
-    );
+  const styles = {
+    container: {
+      padding: "2% 10%",
+    },
+    headingText: {
+      fontSize: fontSize.large,
+      color: colors.accentColor,
+      fontWeight: fontWeight.mediumBold,
+      textAlign: "center",
+      marginBottom: "30px",
+    },
   };
   return (
     <>
       <Navigation />
-      <SimplifiedDiv>
-        <button onClick={handleOpen}>Dropdown</button>
-        {open ? (
-          <ul>
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((id) => {
-              return (
-                <li>
-                  <button onClick={showComments}>{id}</button>
-                </li>
-              );
-            })}
-          </ul>
-        ) : null}
-      </SimplifiedDiv>
-      {displayComment && displayComment.map((el) => <div>{el.name}</div>)}
+      <Grid lg={12} container style={styles.container}>
+        <Grid lg={3}>
+          <Text style={styles.headingText}>Category</Text>
+          <CategoryTab />
+        </Grid>
+        <Grid lg={9}>
+          <SimplifiedDiv>
+            <BlogCard img={product1} />
+            <BlogCard img={product2} />
+            <BlogCard img={product3} />
+          </SimplifiedDiv>
+        </Grid>
+      </Grid>
+      <Footer />
     </>
   );
 };
