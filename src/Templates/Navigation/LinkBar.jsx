@@ -10,6 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { getScreenWidth } from "../../util/helper";
+import DropDown from "../DropDown/DropDown";
 const styles = {
   navBar: {
     display: "flex",
@@ -60,13 +61,12 @@ const LinkBar = () => {
             <Link to="/" style={styles.linksLG}>
               Home
             </Link>
-            <Link to="/shop" style={styles.linksLG}>
-              Shop
-            </Link>
+
+            <DropDown />
             <Link to="/blog" style={styles.linksLG}>
               Blog
             </Link>
-            <Link to="/about" style={styles.linksLG}>
+            <Link to="/" style={styles.linksLG}>
               About
             </Link>
             <Link to="/contact" style={styles.linksLG}>
