@@ -5,7 +5,6 @@ import Text from "../../components/Text/Text";
 import PrimaryButton from "../../components/PrimeryButton/PrimeryButton";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import ShoppingCartOutlined from "@mui/icons-material/ShoppingCartOutlined";
-// shop cart napraviti tacno
 const ArticleCard = ({
   title,
   description,

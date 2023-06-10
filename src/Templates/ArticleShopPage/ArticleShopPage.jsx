@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchAllArticle, fetchProducts } from "../../api/userApi";
+import { fetchAllArticle } from "../../api/userApi";
 import SimplifiedDiv from "../../components/SimplifiedDiv/SimplifiedDiv";
 import { Grid } from "@mui/material";
 import ArticleCard from "../ArticleCard/ArticleCard";
@@ -9,8 +9,6 @@ import article3 from "../../assets/images/home/product3.jpg";
 import { colors, fontSize, fontWeight } from "../../util/theme";
 import CategoryTab from "../../Templates/CategoryTab/CategoryTab";
 import Text from "../../components/Text/Text";
-import { useDispatch, useSelector } from "react-redux";
-import { addProducts } from "../../redux/productsSlice";
 const ArticleShopPage = () => {
   const styles = {
     container: {

@@ -53,7 +53,6 @@ const ShopCategory = () => {
         <SimplifiedDiv style={{}}>
           <Grid container item direction="row" spacing={3}>
             {select?.map((el) => {
-              const randomNum = Math.floor(Math.random() * 3);
               return (
                 <Grid item lg={4} md={4}>
                   <ArticleCard
