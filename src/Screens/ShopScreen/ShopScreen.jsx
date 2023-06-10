@@ -14,7 +14,6 @@ const ShopScreen = () => {
   useEffect(() => {
     fetchProducts().then((allComments) => dispatch(addProducts(allComments)));
   }, []);
-  console.log(select);
 
   return (
     <>

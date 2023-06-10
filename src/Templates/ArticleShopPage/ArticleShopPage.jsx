@@ -14,7 +14,7 @@ import { addProducts } from "../../redux/productsSlice";
 const ArticleShopPage = () => {
   const styles = {
     container: {
-      padding: "0px 10%",
+      padding: "2% 10%",
     },
     headingContainer: {
       display: "flex",
