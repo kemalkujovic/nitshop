@@ -39,32 +39,32 @@ const DropDown = () => {
 
   return (
     <li style={styles.dropdown} className="dropdown">
-      <Link style={styles.linkStyle} to="shop">
+      <Link style={styles.linkStyle} to="/shop">
         Shop
       </Link>
       <ul className="sub-menu" style={styles.submenu}>
         <li style={styles.categoryLi}>
-          <Link style={styles.linksLG} to="shop">
+          <Link style={styles.linksLG} to="/shop">
             Kategorija 1
           </Link>
         </li>
         <li style={styles.categoryLi}>
-          <Link style={styles.linksLG} to="shop">
+          <Link style={styles.linksLG} to="/shop">
             Kategorija 2
           </Link>
         </li>
         <li style={styles.categoryLi}>
-          <Link style={styles.linksLG} to="shop">
+          <Link style={styles.linksLG} to="/shop">
             Kategorija 3
           </Link>
         </li>
         <li style={styles.categoryLi}>
-          <Link style={styles.linksLG} to="shop">
+          <Link style={styles.linksLG} to="/shop">
             Kategorija 4
           </Link>
         </li>
         <li style={styles.categoryLi}>
-          <Link style={styles.linksLG} to="shop">
+          <Link style={styles.linksLG} to="/shop">
             Kategorija 5
           </Link>
         </li>
