@@ -11,7 +11,14 @@ import CategoryTab from "../../Templates/CategoryTab/CategoryTab";
 import Text from "../../components/Text/Text";
 import { useDispatch, useSelector } from "react-redux";
 import { addProducts } from "../../redux/productsSlice";
-const ArticleShopPage = () => {
+const ShopCategory = () => {
+  const dispatch = useDispatch();
+  const select = useSelector((state) => state.products.value.payload?.products);
+
+  useEffect(() => {
+    fetchProducts().then((allComments) => dispatch(addProducts(allComments)));
+  }, []);
+  console.log(select);
   const styles = {
     container: {
       padding: "0px 10%",
@@ -28,13 +35,11 @@ const ArticleShopPage = () => {
       color: colors.accentColor,
       fontWeight: fontWeight.mediumBold,
     },
+    categoryStyle: {
+      marginRight: "10px",
+    },
   };
-  const [articles, setArticles] = useState([]);
-  const images = [article1, article2, article3];
 
-  useEffect(() => {
-    fetchAllArticle().then((allUsers) => setArticles(allUsers));
-  }, []);
   return (
     <Grid container style={styles.container} spacing={5}>
       <Grid item md={3} lg={3} xs={12} sm={12}>
@@ -49,15 +54,15 @@ const ArticleShopPage = () => {
         </SimplifiedDiv>
         <SimplifiedDiv style={{}}>
           <Grid container item direction="row" spacing={3}>
-            {articles.map((el) => {
+            {select?.map((el) => {
               const randomNum = Math.floor(Math.random() * 3);
               return (
                 <Grid item lg={4} md={4}>
                   <ArticleCard
                     key={el.title}
                     title={el.title}
-                    image={images[randomNum]}
-                    price="56"
+                    image={el.images[0]}
+                    price={el.price}
                   />
                 </Grid>
               );
@@ -69,4 +74,4 @@ const ArticleShopPage = () => {
   );
 };
 
-export default ArticleShopPage;
+export default ShopCategory;

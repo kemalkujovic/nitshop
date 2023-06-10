@@ -22,7 +22,7 @@ const ArticleCard = ({
     image: {
       objectFit: "contain",
       width: "100%",
-      height: "100%",
+      height: "200px",
     },
 
     descriptionContainer: {

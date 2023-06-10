@@ -87,14 +87,16 @@ const MainBar = () => {
               textAlign: alignLogo,
             }}
           >
-            <img
-              src={Logo}
-              alt="Logo"
-              style={{
-                width: 140,
-                height: "auto",
-              }}
-            />
+            <Link to="/">
+              <img
+                src={Logo}
+                alt="Logo"
+                style={{
+                  width: 140,
+                  height: "auto",
+                }}
+              />
+            </Link>
           </SimplifiedDiv>
         </Grid>
         <Grid item xs={12} sm={12} md={6} lg={6}>

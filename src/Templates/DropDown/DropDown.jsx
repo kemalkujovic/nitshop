@@ -44,7 +44,7 @@ const DropDown = () => {
       </Link>
       <ul className="sub-menu" style={styles.submenu}>
         <li style={styles.categoryLi}>
-          <Link style={styles.linksLG} to="/shop">
+          <Link style={styles.linksLG} to="/shop/1">
             Kategorija 1
           </Link>
         </li>
